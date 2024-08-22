@@ -22,10 +22,20 @@ function division(a, b) {
     return a / b;
 }
 
+
+/* Función módulo */
+function modulo(a, b) {
+    // Añado la función módulo para obtener el resto de la división
+    return a % b;
+}
+
+
+
 /* Exportación de funciones */
 module.exports = {
 	  suma,
 	  resta,
     multiplicacion,
-    division
+    division,
+    modulo // añado que se exporte la función módulo
 }

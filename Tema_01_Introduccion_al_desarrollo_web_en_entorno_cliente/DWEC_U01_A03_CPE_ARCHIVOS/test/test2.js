@@ -21,4 +21,11 @@ it('comprobar función multiplicación', function() {
 	  should.equal(operaciones.multiplicacion(15, 5), 75);
 });
 
+// Añado el test para comprobar la operación módulo %
+it('comprobar función módulo', function() {
+  operaciones.resta.should.be.a.Function();
+  should.equal(operaciones.modulo(2, 2), 0);
+  should.equal(operaciones.resta(3, 2), 1);
+});
+
 
