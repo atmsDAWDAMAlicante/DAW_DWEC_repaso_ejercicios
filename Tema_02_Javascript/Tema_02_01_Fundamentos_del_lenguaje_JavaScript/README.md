@@ -4,4 +4,4 @@
 *Contenido:*
 
 - DWEC_U02_A01_01 - Declaración y ámbito de variables y constantes
-- DWEC_U02_A01_02 - Strings y plantillas literales
+- DWEC_U02_A01_02 - Plantillas literales, operador ternario y bucle for...of
