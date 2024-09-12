@@ -1,0 +1,40 @@
+{
+  "name": "tema4-programacion-ejercicios-conversion-javascript-test",
+  "version": "1.0.0",
+  "description": "Tests de los Ejercicios del Tema 4 de Programacion DAW 2022 2023 convertidos a JavaScript",
+  "scripts": {
+      "test": "mocha",
+      "test1": "mocha test/Test_Tema_4_Ej_01",
+      "test2": "mocha test/Test_Tema_4_Ej_02",
+      "test3": "mocha test/Test_Tema_4_Ej_03",
+      "test4": "mocha test/Test_Tema_4_Ej_04",
+      "test5": "mocha test/Test_Tema_4_Ej_05",
+      "test6": "mocha test/Test_Tema_4_Ej_06",
+      "test7": "mocha test/Test_Tema_4_Ej_07",
+      "test8": "mocha test/Test_Tema_4_Ej_08",
+      "test9": "mocha test/Test_Tema_4_Ej_09",
+      "test10": "mocha test/Test_Tema_4_Ej_10",
+      "test11": "mocha test/Test_Tema_4_Ej_11",
+      "test12": "mocha test/Test_Tema_4_Ej_12",
+      "test13": "mocha test/Test_Tema_4_Ej_13",
+      "test14": "mocha test/Test_Tema_4_Ej_14",
+      "test15": "mocha test/Test_Tema_4_Ej_15",
+      "test16": "mocha test/Test_Tema_4_Ej_16",
+      "test17": "mocha test/Test_Tema_4_Ej_17",
+      "test18": "mocha test/Test_Tema_4_Ej_18",
+      "test19": "mocha test/Test_Tema_4_Ej_19",
+      "test20": "mocha test/Test_Tema_4_Ej_20",
+      "test21": "mocha test/Test_Tema_4_Ej_21",
+      "test22": "mocha test/Test_Tema_4_Ej_22",
+      "test23": "mocha test/Test_Tema_4_Ej_23",
+      "test24": "mocha test/Test_Tema_4_Ej_24",
+      "test25": "mocha test/Test_Tema_4_Ej_25",
+      "test26": "mocha test/Test_Tema_4_Ej_26"
+  },
+  "author": "AngelTomas",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^10.7.3",
+    "should": "^13.2.3"
+  }
+}

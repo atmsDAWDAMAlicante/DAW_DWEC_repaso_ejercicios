@@ -4,7 +4,7 @@
 
 *Notas para la instalación, uso y confección de los tests que me he hecho yo a modo de apuntes:*
 
-##1. Instalación de los paquetes.
+## 1. Instalación de los paquetes.
 
 1.1 Supuesto: el directorio **NO** tiene un archivo package.json
 
@@ -78,10 +78,10 @@ npm install
 node_modules/
 ```
 
-[https://www.youtube.com/watch?v=7HTfEG_sj9s] (https://www.youtube.com/watch?v=7HTfEG_sj9s)
+[Vídeo sobre package.json] (https://www.youtube.com/watch?v=7HTfEG_sj9s)
 
 
-##2. Archivo js que contiene la función o funciones a probar con los tests.
+## 2. Archivo js que contiene la función o funciones a probar con los tests.
 
 El archivo debe tener las funciones (con return) y, al final, exportar las funciones que se vayan a probar, con el código siguiente (ejemplo de una funcion Sumar):
 
@@ -106,7 +106,7 @@ El archivo debe tener las funciones (con return) y, al final, exportar las funci
 **NOTA**: cuidado con las comas en la enumeración de las funciones que se exportan. La última NO lleva coma.
 
 
-##3. Ejecución de los tests.
+## 3. Ejecución de los tests.
 
 Ejecución de todos los tests a través de la terminal:
 
@@ -123,7 +123,7 @@ npm run test1
 **NOTA**: para la ejecución de un test en particular hay que indicar el nombre del test que figura en el archivo *package.json*. Por ejemplo, el *test1* está en el archivo *test_01.js* pero en el archivo *package.json* se indica que *"***test1***": "mocha test/test_01"*, por tanto hay que ejecutar en la terminal *npm run test1*.
 
 
-##4. Contenido de los archivos de los tests **mocha**.
+## 4. Contenido de los archivos de los tests **mocha**.
 
 Parte superior, declaración de las variables cargando la librería y los módulos (cuidado con las rutas):
 
@@ -154,7 +154,7 @@ Por tanto no pasará el test y en la consola se mostará el siguiente mensaje:
       +6
 ```
 
-**NOTA**: Se ve claro que el '*  1) Funcion suma, ejercicio 1:*' nombre del error es el que está junto al *it*.
+**NOTA**: Se ve claro que el '1) Funcion suma, ejercicio 1*:' nombre del error es el que está junto al *it*.
 
 **DETALLE**:
 ```
@@ -168,16 +168,16 @@ it(		"Funcion suma, ejercicio 1",				function()
 
 **LINKS**:
 
-[https://www.npmjs.com/package/mocha] (https://www.npmjs.com/package/mocha)
+[npm] (https://www.npmjs.com/package/mocha)
 
-[https://github.com/mochajs] (https://github.com/mochajs)
+[GitHub] (https://github.com/mochajs)
 
-[https://medium.com/@JaysNotebook/learning-mocha-everything-you-need-to-know-74e8200f90ec] (https://medium.com/@JaysNotebook/learning-mocha-everything-you-need-to-know-74e8200f90ec)
-
-
+[Javascript Testing with Mocha (Everything You Need To Know)] (https://medium.com/@JaysNotebook/learning-mocha-everything-you-need-to-know-74e8200f90ec)
 
 
-##5. Contenido de los archivos de los tests **should**.
+
+
+## 5. Contenido de los archivos de los tests **should**.
 
 Parte superior, declaración de las variables cargando la librería y los módulos (cuidado con las rutas):
 
@@ -187,6 +187,16 @@ let should = require('should');
 
 // Carga del módulo con las funciones a probar
 let ejercicios = require('../ejercicios/ejercicio_03.js');
+```
+
+Alternativa:
+
+```
+// Carga de la librería should
+import should from 'should';
+
+// Carga del módulo con las funciones a probar
+import ejercicios from '../ejercicios/ejercicio_03.js';
 ```
 
 Parte inferior, los test en sí.
@@ -264,8 +274,8 @@ Esta línea (la del error) lo he puesto al revés (además del error). Delante h
 
 **MÉTODOS (aserciones/) DE SHOULD**:
 
-[https://www.npmjs.com/package/should] (https://www.npmjs.com/package/should)
+[npm] (https://www.npmjs.com/package/should)
 
 [https://shouldjs.github.io/] (https://shouldjs.github.io/)
 
-[https://github.com/shouldjs/should.js] (https://github.com/shouldjs/should.js)
+[GitHub] (https://github.com/shouldjs/should.js)
