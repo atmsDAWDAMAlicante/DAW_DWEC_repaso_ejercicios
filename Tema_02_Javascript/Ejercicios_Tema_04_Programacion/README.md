@@ -4,7 +4,7 @@
 
 *Notas para la instalación, uso y confección de los tests que me he hecho yo a modo de apuntes:*
 
-1. Instalación de los paquetes.
+##1. Instalación de los paquetes.
 
 1.1 Supuesto: el directorio **NO** tiene un archivo package.json
 
@@ -43,7 +43,7 @@ npm install
 
 ```
 {
-    "name": "NOMBRE-DE-MIS-TESTS",
+    "name": "NOMBRE-NECESARIO-PARA-SUBIRLO-A-NPM",
     "version": "1.0.0",
     "description": "UNA DESCRIPCIÓN DE MIS TESTS",
     "scripts": {
@@ -78,8 +78,10 @@ npm install
 node_modules/
 ```
 
+[https://www.youtube.com/watch?v=7HTfEG_sj9s] (https://www.youtube.com/watch?v=7HTfEG_sj9s)
 
-2. Archivo js que contiene la función o funciones a probar con los tests.
+
+##2. Archivo js que contiene la función o funciones a probar con los tests.
 
 El archivo debe tener las funciones (con return) y, al final, exportar las funciones que se vayan a probar, con el código siguiente (ejemplo de una funcion Sumar):
 
@@ -100,4 +102,170 @@ El archivo debe tener las funciones (con return) y, al final, exportar las funci
 		  Otra
 	}
 ```
+
 **NOTA**: cuidado con las comas en la enumeración de las funciones que se exportan. La última NO lleva coma.
+
+
+##3. Ejecución de los tests.
+
+Ejecución de todos los tests a través de la terminal:
+
+```
+npm test
+```
+
+Ejecución de un test en particular (*test1* sería el nombre del test en particular)
+
+```
+npm run test1
+```
+
+**NOTA**: para la ejecución de un test en particular hay que indicar el nombre del test que figura en el archivo *package.json*. Por ejemplo, el *test1* está en el archivo *test_01.js* pero en el archivo *package.json* se indica que *"***test1***": "mocha test/test_01"*, por tanto hay que ejecutar en la terminal *npm run test1*.
+
+
+##4. Contenido de los archivos de los tests **mocha**.
+
+Parte superior, declaración de las variables cargando la librería y los módulos (cuidado con las rutas):
+
+```
+let assert = require('assert');
+let ejercicio_01 = require("../ejerciciosCarpeta/ejercicio_01.js");
+```
+
+Parte inferior, el test en sí. El ejemplo de abajo produce un error ya que la función suma devuelve return a+b;
+
+```
+it("Funcion suma, ejercicio 1",function(){
+    assert.equal(ejercicio_01.suma(3,4),6);
+});
+```
+
+Por tanto no pasará el test y en la consola se mostará el siguiente mensaje:
+
+```
+  1 failing
+
+  1) Funcion suma, ejercicio 1:
+
+      AssertionError [ERR_ASSERTION]: 7 == 6
+      + expected - actual
+
+      -7
+      +6
+```
+
+**NOTA**: Se ve claro que el '*  1) Funcion suma, ejercicio 1:*' nombre del error es el que está junto al *it*.
+
+**DETALLE**:
+```
+it(		"Funcion suma, ejercicio 1",				function()
+		{
+			assert.equal(		**ejercicio_01.suma(3,4)**		,6	);
+		}
+	);
+
+```
+
+**LINKS**:
+
+[https://www.npmjs.com/package/mocha] (https://www.npmjs.com/package/mocha)
+
+[https://github.com/mochajs] (https://github.com/mochajs)
+
+[https://medium.com/@JaysNotebook/learning-mocha-everything-you-need-to-know-74e8200f90ec] (https://medium.com/@JaysNotebook/learning-mocha-everything-you-need-to-know-74e8200f90ec)
+
+
+
+
+##5. Contenido de los archivos de los tests **should**.
+
+Parte superior, declaración de las variables cargando la librería y los módulos (cuidado con las rutas):
+
+```
+// Carga de la librería should
+let should = require('should');
+
+// Carga del módulo con las funciones a probar
+let ejercicios = require('../ejercicios/ejercicio_03.js');
+```
+
+Parte inferior, los test en sí.
+
+La *función a probar* es:
+
+```
+function mensaje(a){
+    return a;
+}
+```
+
+Los **tests** son:
+
+```
+it("mensaje", function(){
+    ejercicios.mensaje.should.be.a.Function();
+    should.equal(ejercicios.mensaje("Hola"), "Hola")
+})
+```
+
+```
+it("mensaje", function(){
+    ejercicios.mensaje.should.be.a.Function();
+    should("Hola").be.exactly(ejercicios.mensaje("Hola")).and.be.a.String();
+})
+```
+
+```
+it("mensaje con error", function(){
+    ejercicios.mensaje.should.be.a.Function();
+    (ejercicios.mensaje("Hola")).should.be.exactly("Adios");
+})
+```
+
+El último da error, y el **mensaje de error** que sale por la terminal es el siguiente:
+
+```
+  1) mensaje con error:
+
+      AssertionError: expected 'Hola' to be 'Adios'
+      + expected - actual
+
+      -Hola
+      +Adios
+```
+
+**DETALLES**:
+
+Esta línea comprueba que *ejercicios.mensaje* es *should.be.a.* una función *Function()*
+
+```
+    ejercicios.mensaje.should.be.a.Function();
+```
+
+Esta línea usa el método *should.equal* para verificar la igualdad (estricta) entre el return de la función *ejercicios.mensaje("Hola")* y el valor esperado *, "Hola");*
+
+```
+    should.equal(ejercicios.mensaje("Hola"), "Hola");
+```
+
+Esta línea comprueba que "Hola" *should("Hola")* es exactamente igual *be.exactly* al return de la función *ejercicios.mensaje("Hola")*
+y, además, comprueba que es un string *.and.be.a.String();*
+
+
+```
+    should("Hola").be.exactly(operaciones.mensaje("Hola")).and.be.a.String();
+```
+
+Esta línea (la del error) lo he puesto al revés (además del error). Delante he puesto el return. Se comprueba que el return de la función *ejercicios.mensaje("Hola")*  es exactamente igual *.should.be.exactly* a *("Adios");*
+
+```
+(ejercicios.mensaje("Hola")).should.be.exactly("Adios");
+```
+
+**MÉTODOS (aserciones/) DE SHOULD**:
+
+[https://www.npmjs.com/package/should] (https://www.npmjs.com/package/should)
+
+[https://shouldjs.github.io/] (https://shouldjs.github.io/)
+
+[https://github.com/shouldjs/should.js] (https://github.com/shouldjs/should.js)
