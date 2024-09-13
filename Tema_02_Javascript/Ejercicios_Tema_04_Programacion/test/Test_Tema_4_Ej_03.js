@@ -9,4 +9,4 @@ it("Función Intercambio()", function(){
     should.deepEqual(ejercicios.Intercambio(3,4), [4,3]);
     // equal con un Array falla
     //should.equal(ejercicios.Intercambio(9,100), [100,9]); 
-})
+});
