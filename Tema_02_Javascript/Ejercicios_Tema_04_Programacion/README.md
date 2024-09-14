@@ -291,7 +291,7 @@ let should = require('should');
 // Carga del módulo con las funciones a probar
 let ejercicios = require('../RUTA-AL-ARCHIVO-A-PROBAR.js');
 ```
-Opcional: para pasar muchos datos de pruebas al test de una vez (como *[DataRow()]* en C#)
+Opcional: un array para pasar muchos datos de pruebas al test de una vez (como *[DataRow()]* en C#)
 
 ```
 let arrayPrueba =  [
@@ -319,6 +319,83 @@ it ("un título", function(){
 ```
 it ("Función tradicional: suma()", function(){
     ejercicios.suma.should.be.a.Function; // comprobación que suma() es una función
-    should.**equal**(ejercicios.suma(2,2), 4, "mensaje en caso de no pasar la prueba"); // se le pasan 2 y 2, deberá devolver 4
+    should.equal(ejercicios.suma(2,2), 4, "mensaje en caso de no pasar la prueba"); // se le pasan 2 y 2, deberá devolver 4
 });
 ```
+
+### 6.4 - to be or not to be, that's the question
+
+Para evaluar si la función devuelve un valor booleano o no lo devuelve están:
+- should.be.true
+- should.not.be.true
+
+```
+it("Función EsDivisible()", function(){
+    ejercicios.EsDivisible.should.be.a.Function;
+    (ejercicios.EsDivisible(2,2)).should.be.true("Ha fallado la prueba 2%2"); // el mensaje es para el caso que no haya pasado la prueba
+    (ejercicios.EsDivisible(3,2)).should.not.be.true("Ha fallado la prueba de 3%2==false");
+});
+```
+
+### 6.5 - ARRAYS: deepEqual
+
+Para comparar valores de un array *equal* falla; hay que usar **deepEqual**
+
+```
+it("Función Intercambio()", function(){
+    ejercicios.Intercambio.should.be.a.Function;
+    should.deepEqual(ejercicios.Intercambio(3,4), [4,3]);
+    // equal con un Array falla
+    //should.equal(ejercicios.Intercambio(9,100), [100,9]); 
+});
+```
+
+### 6.6 - Encadenando aserciones
+
+A diferencia de *equal*, **.should.be.exactly(10)** permite que se le encadene otra aserción:
+**.and.be.a.Number();**
+*en el código donde lo he probado, antes he hecho parseInt para que me devuelva un entero ;)*
+
+```
+it ("Función: suma()", function(){
+    ejercicios.suma.should.be.a.Function;
+    should.equal(ejercicios.suma(5,5),10);
+    (ejercicios.suma(5,5)).should.be.exactly(10).and.be.a.Number();
+});
+```
+
+### 6.7 - Agrupando: describe("titulo", function(){});
+
+1º Se declara un array para pasar muchos datos de pruebas al test de una vez (como *[DataRow()]* en C#)
+
+```
+let arrayPrueba = [
+    ["Hola", "Hola"],
+    ["Adios","Adios"]
+]
+```
+
+2º Se utiliza **describe** y una función anónima para envolver todo el test.
+3º Se crea un bucle foreach que contiene los elementos del array (que también son arrays) como parámetros.
+*arrayPrueba.forEach(([input, expected])=>{*
+4º Se crea un bloque **it** que pasa los parámetros del bucle forEach
+*ejercicios.mensaje(input).should.be.equal(expected)*
+
+Código completo (la función mensaje() recibe un string y lo retorna tal cual).
+```
+describe("Para agrupar en grupos", function(){
+    arrayPrueba.forEach(([input, expected])=>{
+        it('Mensaje prueba', function(){
+            ejercicios.mensaje(input).should.be.equal(expected)
+        });
+    });
+});
+```
+
+**DETALLE:** en esta línea se ve el detalle de los valores que se comparan.
+
+*ejercicios.mensaje(input).should.be.equal(expected)*
+
+**ejercicios.mensaje(input)** aquí se pasa el primer elemento del array *input* (el primer 'Hola') a la función para que realice la operación y devuelva el return
+
+**.should.be.equal(expected)** lo devuelto con el return se compara con el segundo valor de cada array *expected* (el segundo 'Hola') 
