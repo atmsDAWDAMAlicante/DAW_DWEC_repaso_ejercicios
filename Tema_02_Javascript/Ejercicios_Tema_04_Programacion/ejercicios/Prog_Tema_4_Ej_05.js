@@ -2,8 +2,19 @@
 Enunciado: Realizar un programa con una función a la que se le pasen dos números enteros y devuelva el mayor.
 */
 
+// función DevuelveElMayor
+
+function DevuelveElMayor(num1, num2){
+    return 0;
+}
 
 
 
+
+
+
+module.exports = {
+    DevuelveElMayor
+}
 
 
