@@ -5,13 +5,17 @@ Enunciado: Realizar un programa con una función a la que se le pasen dos númer
 // función DevuelveElMayor
 
 function DevuelveElMayor(num1, num2){
-    return 0;
+    if (num1 > num2){
+        return num1;
+    } else if (num1 < num2){
+        return num2;
+    } else {
+        return "¡Dos iguales para hoy";
+    }
+
 }
 
-
-
-
-
+console.log(DevuelveElMayor(2,3));
 
 module.exports = {
     DevuelveElMayor

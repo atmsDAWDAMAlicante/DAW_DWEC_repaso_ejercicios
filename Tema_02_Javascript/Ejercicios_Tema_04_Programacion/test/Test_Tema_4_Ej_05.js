@@ -9,13 +9,14 @@ let ejercicios = require('../ejercicios/Prog_Tema_4_Ej_05.js');
 let arrayDePrueba = [
     [1,2,2],
     [5,4,5],
-    [-1,-10,-1]
+    [-1,-10,-1],
+    [2,2,"¡Dos iguales para hoy"]
 ];
 
 
 describe("Función DevuelveElMayor", function(){
-    arrayDePrueba.forEach(([input1, input2, expected])=>{
-        it("Cada elemento del array:",function(){
+    arrayDePrueba.forEach(([input1, input2, expected], index)=>{
+        it(`Elemento nº ${index} del array:`,function(){
             ejercicios.DevuelveElMayor.should.be.a.Function;
             should.equal(ejercicios.DevuelveElMayor(input1, input2), expected);
         });
