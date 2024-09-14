@@ -272,10 +272,53 @@ Esta línea (la del error) lo he puesto al revés (además del error). Delante h
 (ejercicios.mensaje("Hola")).should.be.exactly("Adios");
 ```
 
-**MÉTODOS (aserciones/) DE SHOULD**:
+## 6. **MÉTODOS (aserciones/) DE SHOULD**:
 
 [npm] (https://www.npmjs.com/package/should)
 
 [https://shouldjs.github.io/] (https://shouldjs.github.io/)
 
 [GitHub] (https://github.com/shouldjs/should.js)
+
+### 6.1 - Declaración de variables
+
+Mínimo las dos variables 'should' y 'ejercicios'.
+
+```
+// Carga de la librería should
+let should = require('should');
+
+// Carga del módulo con las funciones a probar
+let ejercicios = require('../RUTA-AL-ARCHIVO-A-PROBAR.js');
+```
+Opcional: para pasar muchos datos de pruebas al test de una vez (como *[DataRow()]* en C#)
+
+```
+let arrayPrueba =  [
+    [1,1],
+    [2,2],
+    [3,3]
+];
+```
+
+
+### 6.2 - **it** esquema básico
+
+```
+it ("un título", function(){
+    ejercicios.LA-FUNCION.should.be.a.Function; // comprobación que LA-FUNCION es una función
+    // aserción
+});
+```
+
+### 6.3 - equal
+
+
+**equal**(se pasan estos parametros), "la función da esto", "mensaje en caso de no pasar la prueba")
+
+```
+it ("Función tradicional: suma()", function(){
+    ejercicios.suma.should.be.a.Function; // comprobación que suma() es una función
+    should.**equal**(ejercicios.suma(2,2), 4, "mensaje en caso de no pasar la prueba"); // se le pasan 2 y 2, deberá devolver 4
+});
+```
