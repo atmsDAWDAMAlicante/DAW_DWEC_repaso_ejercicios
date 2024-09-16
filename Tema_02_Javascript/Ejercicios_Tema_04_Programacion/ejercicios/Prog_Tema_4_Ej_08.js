@@ -5,6 +5,30 @@ Hay que realizar una función para realizar esta validación, así como una func
 */
 
 
+function ValidarNumerosIntroducidos(...notas){
+    let fallido = true;
+    for (let nota of notas){
+        if ( (nota < 0) || (nota > 10) ){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+
+function CalcularMedia (...notas){
+
+}
+
+console.log(ValidarNumerosIntroducidos(1,20,30))
+
+
+
+module.exports = {
+    ValidarNumerosIntroducidos,
+    CalcularMedia
+}
 
 
 
