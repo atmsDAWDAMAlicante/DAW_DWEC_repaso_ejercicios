@@ -1,4 +1,4 @@
-# Ejercicios del Tema 4 "Programación Modular" de la asignatura "Programación" del ciclo DAW, Curso 2022-2023 traducidos a JavaScript
+# Ejercicios del Tema 4 "*Programación Modular*" de la asignatura "*Programación*" del ciclo DAW, Curso 2022-2023 traducidos a JavaScript
 
 **En una carpeta "test" se guardan los tests mocha/should correspondientes a cada ejercicio**
 
@@ -272,7 +272,7 @@ Esta línea (la del error) lo he puesto al revés (además del error). Delante h
 (ejercicios.mensaje("Hola")).should.be.exactly("Adios");
 ```
 
-## 6. **MÉTODOS (aserciones/) DE SHOULD**:
+## 6. **MÉTODOS (aserciones) DE SHOULD**:
 
 [npm] (https://www.npmjs.com/package/should)
 

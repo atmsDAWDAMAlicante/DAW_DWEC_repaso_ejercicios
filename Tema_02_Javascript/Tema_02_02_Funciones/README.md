@@ -1,5 +1,7 @@
-# Ejercicios del Tema 2 "Javascript" del libro de la asignatura **DWEC** (*Desarrollo Web Entorno Cliente*) del ciclo DAW, Curso 2023-2024
-**Apartado 2.2: Funciones**
+# Tema 2 "Javascript"
+## Apartado 2.2: Funciones
+
+Archivos de '*Teoría y ejemplos*' del Apartado 2.2: '*Funciones*' del libro de la asignatura **DWEC** (*Desarrollo Web Entorno Cliente*) del ciclo DAW, Curso 2023-2024.
 
 *Contenido:*
 
