@@ -1,0 +1,1 @@
+const miModulo = import * from ("./funciones.js")
