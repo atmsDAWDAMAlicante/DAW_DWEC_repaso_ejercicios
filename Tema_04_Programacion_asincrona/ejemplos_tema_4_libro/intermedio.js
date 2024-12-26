@@ -1,17 +1,23 @@
 
-// CÓDIGO de los Controles DIV NUMERO1
+// CÓDIGO de los Controles DIV NUMERO1 - CALLBACKS - MAP
 const txtNUMERO1 = document.querySelector("#txtNUMERO1");
 const btnNUMERO1 = document.querySelector("#btnNUMERO1");
 const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 btnNUMERO1.addEventListener("click",function(){
+  console.log("NUMERO1 funciona"); // Para ver que funciona
 
-  alert("NUMERO1 funciona");
-  print(txtNUMERO1.value,1)
+  let vocales = ["a", "e", "i", "o", "u"];
 
-});// Fin del AddEventListener 
+  let arrayVocalesMayusculas = [];
+  arrayVocalesMayusculas = vocales.map((elemento)=>elemento.toUpperCase())
 
-// FIN CÓDIGO de los Controles DIV NUMERO1
+  // Bloque para imprimir
+  parrafoNUMERO1.innerText = "";
+  print(printArray(arrayVocalesMayusculas, true),1)
+});// Fin del AddEventListener - CALLBACKS - MAP
+
+// FIN CÓDIGO de los Controles DIV NUMERO1 - CALLBACKS
 
 
 
@@ -137,11 +143,24 @@ btnPLANTILLAUNBOTON.addEventListener("click",function(){
 function print(mensaje, numero){
   let cadenaParrafo = `parrafoNUMERO${numero}`
   let elementoEnConcreto = document.querySelector("#"+cadenaParrafo)
-  elementoEnConcreto.innerHTML += `NUMERO${numero} funciona ${mensaje}<br>`;
+  elementoEnConcreto.innerHTML += `${mensaje}<br>`;
   /*
   let elementoConGetElementById = document.getElementById(cadenaParrafo);
   elementoConGetElementById.innerHTML = `NUMERO6 funciona ${mensaje}`;
   */
+}
+
+function printArray(array,linea){
+  let resultado = "";
+  let salto = "";
+  if (linea)
+      salto = "<br>";
+  else
+      salto = "";
+  for (let elemento of array){
+    resultado += `${elemento}${salto}`;
+  }
+  return resultado;
 }
 
 // FIN FUNCIONES DE SALIDA
