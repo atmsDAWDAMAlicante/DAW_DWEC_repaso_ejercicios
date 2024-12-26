@@ -49,13 +49,39 @@ btnNUMERO2.addEventListener("click",function(){
 // FIN CÓDIGO de los Controles DIV NUMERO2 - SETTIMEOUT
 
 
+// CÓDIGO de los Controles DIV PLANTILLA DOS BOTONES - EJERCICIO - CRONÓMETRO
+const txtCRONOMETRO = document.querySelector("#txtCRONOMETRO");
+const btnCRONOMETROInicioParada = document.querySelector("#btnCRONOMETROInicioParada");
+const btnCRONOMETROPuestaaCero = document.querySelector("#btnCRONOMETROPuestaaCero");
+const parrafoCRONOMETRO = document.querySelector("#parrafoCRONOMETRO");
+
+btnCRONOMETROInicioParada.addEventListener("click",function(){
+
+  alert("InicioParada funciona");
+  parrafoCRONOMETRO.innerHTML = "InicioParada funciona " + txtCRONOMETRO.value;
+  
+}); 
+
+btnCRONOMETROPuestaaCero.addEventListener("click",function(){
+
+  alert("PuestaaCero funciona");
+  parrafoCRONOMETRO.innerHTML = `PuestaaCero funciona ${txtCRONOMETRO.value}`;
+  
+}); 
+
+// FIN CÓDIGO de los Controles DIV PLANTILLA DOS BOTONES - EJERCICIO - CRONÓMETRO
+
+
+
+
+
 // CÓDIGO de los Controles DIV NUMERO3
 const txtNUMERO3 = document.querySelector("#txtNUMERO3");
 const btnNUMERO3 = document.querySelector("#btnNUMERO3");
 const parrafoNUMERO3 = document.querySelector("#parrafoNUMERO3");
 
 btnNUMERO3.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("NUMERO3 funciona");
   print(txtNUMERO3.value,3)
 
@@ -69,7 +95,7 @@ const btnNUMERO4 = document.querySelector("#btnNUMERO4");
 const parrafoNUMERO4 = document.querySelector("#parrafoNUMERO4");
 
 btnNUMERO4.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("NUMERO4 funciona");
   print(txtNUMERO4.value,4)
   
@@ -85,7 +111,7 @@ const btnNUMERO5 = document.querySelector("#btnNUMERO5");
 const parrafoNUMERO5 = document.querySelector("#parrafoNUMERO5");
 
 btnNUMERO5.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("NUMERO5 funciona");
   print(txtNUMERO5.value,5)
   
@@ -101,7 +127,7 @@ const btnNUMERO6 = document.querySelector("#btnNUMERO6");
 const parrafoNUMERO6 = document.querySelector("#parrafoNUMERO6");
 
 btnNUMERO6.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("NUMERO6 funciona");
   print(txtNUMERO6.value,6)
 }); 
@@ -127,7 +153,7 @@ btnPLANTILLADOSBOTONES1.addEventListener("click",function(){
 }); 
 
 btnPLANTILLADOSBOTONES2.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("PLANTILLADOSBOTONES 2 funciona");
   parrafoPLANTILLADOSBOTONES.innerHTML = `PLANTILLADOSBOTONES 2 funciona ${txtPLANTILLADOSBOTONES.value}`;
   
@@ -190,14 +216,14 @@ const btnPLANTILLADOSBOTONES2 = document.querySelector("#btnPLANTILLADOSBOTONES2
 const parrafoPLANTILLADOSBOTONES = document.querySelector("#parrafoPLANTILLADOSBOTONES");
 
 btnPLANTILLADOSBOTONES1.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("PLANTILLADOSBOTONES 1 funciona");
   parrafoPLANTILLADOSBOTONES.innerHTML = "PLANTILLADOSBOTONES 1 funciona " + txtPLANTILLADOSBOTONES.value;
   
 }); 
 
 btnPLANTILLADOSBOTONES2.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("PLANTILLADOSBOTONES 2 funciona");
   parrafoPLANTILLADOSBOTONES.innerHTML = `PLANTILLADOSBOTONES 2 funciona ${txtPLANTILLADOSBOTONES.value}`;
   
@@ -212,7 +238,7 @@ const btnPLANTILLAUNBOTON = document.querySelector("#btnPLANTILLAUNBOTON");
 const parrafoPLANTILLAUNBOTON = document.querySelector("#parrafoPLANTILLAUNBOTON");
 
 btnPLANTILLAUNBOTON.addEventListener("click",function(){
-  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
+
   alert("PLANTILLA UN BOTON funciona");
   parrafoPLANTILLAUNBOTON.innerHTML = `PLANTILLA UN BOTON funciona ${txtPLANTILLAUNBOTON.value}` ;
   
