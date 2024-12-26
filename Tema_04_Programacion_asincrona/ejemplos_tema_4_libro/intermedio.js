@@ -1,3 +1,7 @@
+// Variables globales
+let vocales = ["a", "e", "i", "o", "u"];
+
+
 
 // CÓDIGO de los Controles DIV NUMERO1 - CALLBACKS - MAP
 const txtNUMERO1 = document.querySelector("#txtNUMERO1");
@@ -7,7 +11,7 @@ const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 btnNUMERO1.addEventListener("click",function(){
   console.log("NUMERO1 funciona"); // Para ver que funciona
 
-  let vocales = ["a", "e", "i", "o", "u"];
+
 
   let arrayVocalesMayusculas = [];
   arrayVocalesMayusculas = vocales.map((elemento)=>elemento.toUpperCase())
@@ -21,20 +25,28 @@ btnNUMERO1.addEventListener("click",function(){
 
 
 
-// CÓDIGO de los Controles DIV NUMERO2
+// CÓDIGO de los Controles DIV NUMERO2 - SETTIMEOUT
 const txtNUMERO2 = document.querySelector("#txtNUMERO2");
 const btnNUMERO2 = document.querySelector("#btnNUMERO2");
 const parrafoNUMERO2 = document.querySelector("#parrafoNUMERO2");
 
 btnNUMERO2.addEventListener("click",function(){
+  console.log("NUMERO2 funciona"); // Para ver que funciona
 
-  alert("NUMERO2 funciona");
-  print(txtNUMERO2.value,2)
+  // Conversión números
+  let segundos = parseInt(txtNUMERO2.value)
+  if (isNaN(segundos))
+    segundos = 1;
 
-
+  // Bloque para imprimir
+  parrafoNUMERO2.innerText = "";
+  // EL SETTIMEOUT
+  // se le tiene que pasar LA REFERENCIA A UNA FUNCIÓN y NO la ejecución INMEDIATA de una función 'print()'
+  // CON CALLBACKS SE USAN FUNCIONES ANÓNIMAS
+  setTimeout(()=>print(printArray(vocales,false),2),(segundos*1000))
 }); 
 
-// FIN CÓDIGO de los Controles DIV NUMERO2
+// FIN CÓDIGO de los Controles DIV NUMERO2 - SETTIMEOUT
 
 
 // CÓDIGO de los Controles DIV NUMERO3
