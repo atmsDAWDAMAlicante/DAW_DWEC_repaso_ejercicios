@@ -6,8 +6,16 @@ const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 btnNUMERO1.addEventListener("click",function(){
 
-  alert("NUMERO1 funciona");
-  print(txtNUMERO1.value,1)
+  let primerCallback = ()=>print("Hola, Don Pepito",1);
+  let segundoCallbakc = ()=>print("Hola, Don José", 1);
+
+  let primerSetTimeout = setTimeout(primerCallback, 500);
+  let segundoSetTimeout = setTimeout(segundoCallbakc, 1000);
+  // Se ejecutan los dos
+  console.log(primerSetTimeout);
+  //primerSetTimeout(); ESTO ESTÁ MAL
+  console.log(segundoSetTimeout); // Salen números correlativos
+  //segundoSetTimeout(); ESTO ESTÁ MAL
 
 });// Fin del AddEventListener 
 
@@ -137,7 +145,7 @@ btnPLANTILLAUNBOTON.addEventListener("click",function(){
 function print(mensaje, numero){
   let cadenaParrafo = `parrafoNUMERO${numero}`
   let elementoEnConcreto = document.querySelector("#"+cadenaParrafo)
-  elementoEnConcreto.innerHTML += `NUMERO${numero} funciona ${mensaje}<br>`;
+  elementoEnConcreto.innerHTML += `${mensaje}<br>`;
   /*
   let elementoConGetElementById = document.getElementById(cadenaParrafo);
   elementoConGetElementById.innerHTML = `NUMERO6 funciona ${mensaje}`;
