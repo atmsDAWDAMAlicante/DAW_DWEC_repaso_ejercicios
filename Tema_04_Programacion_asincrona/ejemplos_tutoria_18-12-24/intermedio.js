@@ -17,6 +17,17 @@ btnNUMERO1.addEventListener("click",function(){
   console.log(segundoSetTimeout); // Salen números correlativos
   //segundoSetTimeout(); ESTO ESTÁ MAL
 
+let usuario  = {
+  nombre: "Pepico",
+  saludarConRetardo: function(){
+    console.log(`Lo que vale this: ${this}`);// el objeto
+    setTimeout(function(){console.log(`Lo que vale this: ${this}`);console.log(`Hola, soy ${this.nombre}`)},1000)//objeto Window
+    //setTimeout(()=>console.log(`Hola, soy ${this.nombre}`),1000)
+  }
+}
+usuario.saludarConRetardo();
+
+
 });// Fin del AddEventListener 
 
 // FIN CÓDIGO de los Controles DIV NUMERO1
