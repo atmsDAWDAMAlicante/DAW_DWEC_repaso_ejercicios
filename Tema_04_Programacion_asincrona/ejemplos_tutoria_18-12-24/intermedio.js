@@ -1,82 +1,34 @@
-// Variables globales
-let vocales = ["a", "e", "i", "o", "u"];
 
-
-
-// CÓDIGO de los Controles DIV NUMERO1 - CALLBACKS - MAP
+// CÓDIGO de los Controles DIV NUMERO1
 const txtNUMERO1 = document.querySelector("#txtNUMERO1");
 const btnNUMERO1 = document.querySelector("#btnNUMERO1");
 const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 btnNUMERO1.addEventListener("click",function(){
-  console.log("NUMERO1 funciona"); // Para ver que funciona
+
+  alert("NUMERO1 funciona");
+  print(txtNUMERO1.value,1)
+
+});// Fin del AddEventListener 
+
+// FIN CÓDIGO de los Controles DIV NUMERO1
 
 
 
-  let arrayVocalesMayusculas = [];
-  arrayVocalesMayusculas = vocales.map((elemento)=>elemento.toUpperCase())
-
-  // Bloque para imprimir
-  parrafoNUMERO1.innerText = "";
-  print(printArray(arrayVocalesMayusculas, true),1)
-});// Fin del AddEventListener - CALLBACKS - MAP
-
-// FIN CÓDIGO de los Controles DIV NUMERO1 - CALLBACKS
-
-
-
-// CÓDIGO de los Controles DIV NUMERO2 - SETTIMEOUT
+// CÓDIGO de los Controles DIV NUMERO2
 const txtNUMERO2 = document.querySelector("#txtNUMERO2");
 const btnNUMERO2 = document.querySelector("#btnNUMERO2");
 const parrafoNUMERO2 = document.querySelector("#parrafoNUMERO2");
 
 btnNUMERO2.addEventListener("click",function(){
-  console.log("NUMERO2 funciona"); // Para ver que funciona
 
-  // Conversión números
-  /*let segundos = parseInt(txtNUMERO2.value)
-  if (isNaN(segundos))
-    segundos = 1;*/
+  alert("NUMERO2 funciona");
+  print(txtNUMERO2.value,2)
 
-  // Bloque para imprimir
-  parrafoNUMERO2.innerText = "";
-  // EL SETTIMEOUT
-  // se le tiene que pasar LA REFERENCIA A UNA FUNCIÓN y NO la ejecución INMEDIATA de una función 'print()'
-  // CON CALLBACKS SE USAN FUNCIONES ANÓNIMAS
-  setTimeout(()=>print(printArray(vocales,false),2),(segundos(txtNUMERO2.value)))
 
 }); 
 
-// FIN CÓDIGO de los Controles DIV NUMERO2 - SETTIMEOUT
-
-
-// CÓDIGO de los Controles DIV PLANTILLA DOS BOTONES - EJERCICIO - CRONÓMETRO
-const txtCRONOMETRO = document.querySelector("#txtCRONOMETRO");
-const btnCRONOMETROInicioParada = document.querySelector("#btnCRONOMETROInicioParada");
-const btnCRONOMETROPuestaaCero = document.querySelector("#btnCRONOMETROPuestaaCero");
-const parrafoNUMERO7 = document.querySelector("#parrafoNUMERO7");
-let momento = 0;
-
-function cronometroFuncion(){
-  momento++;
-  print(momento,7)
-}
-let tiempoTranscurrido = setInterval(cronometroFuncion, 1000)
-
-btnCRONOMETROInicioParada.addEventListener("click",function(){
-  
-  tiempoTranscurrido();
-}); 
-
-btnCRONOMETROPuestaaCero.addEventListener("click",function(){
-  clearInterval(tiempoTranscurrido)
-  print("Itervalo interrumpido", 7);
-}); 
-
-// FIN CÓDIGO de los Controles DIV PLANTILLA DOS BOTONES - EJERCICIO - CRONÓMETRO
-
-
-
+// FIN CÓDIGO de los Controles DIV NUMERO2
 
 
 // CÓDIGO de los Controles DIV NUMERO3
@@ -85,7 +37,7 @@ const btnNUMERO3 = document.querySelector("#btnNUMERO3");
 const parrafoNUMERO3 = document.querySelector("#parrafoNUMERO3");
 
 btnNUMERO3.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("NUMERO3 funciona");
   print(txtNUMERO3.value,3)
 
@@ -99,7 +51,7 @@ const btnNUMERO4 = document.querySelector("#btnNUMERO4");
 const parrafoNUMERO4 = document.querySelector("#parrafoNUMERO4");
 
 btnNUMERO4.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("NUMERO4 funciona");
   print(txtNUMERO4.value,4)
   
@@ -115,7 +67,7 @@ const btnNUMERO5 = document.querySelector("#btnNUMERO5");
 const parrafoNUMERO5 = document.querySelector("#parrafoNUMERO5");
 
 btnNUMERO5.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("NUMERO5 funciona");
   print(txtNUMERO5.value,5)
   
@@ -131,7 +83,7 @@ const btnNUMERO6 = document.querySelector("#btnNUMERO6");
 const parrafoNUMERO6 = document.querySelector("#parrafoNUMERO6");
 
 btnNUMERO6.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("NUMERO6 funciona");
   print(txtNUMERO6.value,6)
 }); 
@@ -157,7 +109,7 @@ btnPLANTILLADOSBOTONES1.addEventListener("click",function(){
 }); 
 
 btnPLANTILLADOSBOTONES2.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("PLANTILLADOSBOTONES 2 funciona");
   parrafoPLANTILLADOSBOTONES.innerHTML = `PLANTILLADOSBOTONES 2 funciona ${txtPLANTILLADOSBOTONES.value}`;
   
@@ -185,38 +137,14 @@ btnPLANTILLAUNBOTON.addEventListener("click",function(){
 function print(mensaje, numero){
   let cadenaParrafo = `parrafoNUMERO${numero}`
   let elementoEnConcreto = document.querySelector("#"+cadenaParrafo)
-  elementoEnConcreto.innerHTML += `${mensaje}<br>`;
+  elementoEnConcreto.innerHTML += `NUMERO${numero} funciona ${mensaje}<br>`;
   /*
   let elementoConGetElementById = document.getElementById(cadenaParrafo);
   elementoConGetElementById.innerHTML = `NUMERO6 funciona ${mensaje}`;
   */
 }
 
-function printArray(array,linea){
-  let resultado = "";
-  let salto = "";
-  if (linea)
-      salto = "<br>";
-  else
-      salto = "";
-  for (let elemento of array){
-    resultado += `${elemento}${salto}`;
-  }
-  return resultado;
-}
-
 // FIN FUNCIONES DE SALIDA
-
-// FUNCIONES OPERACIONES
-
-function segundos(){
-  let segundos = parseInt(txtNUMERO2.value)
-  if (isNaN(segundos))
-    segundos = 1;
-  return segundos*1000;
-}
-
-
 
 // ------------------------------------------------------
 
@@ -231,14 +159,14 @@ const btnPLANTILLADOSBOTONES2 = document.querySelector("#btnPLANTILLADOSBOTONES2
 const parrafoPLANTILLADOSBOTONES = document.querySelector("#parrafoPLANTILLADOSBOTONES");
 
 btnPLANTILLADOSBOTONES1.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("PLANTILLADOSBOTONES 1 funciona");
   parrafoPLANTILLADOSBOTONES.innerHTML = "PLANTILLADOSBOTONES 1 funciona " + txtPLANTILLADOSBOTONES.value;
   
 }); 
 
 btnPLANTILLADOSBOTONES2.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("PLANTILLADOSBOTONES 2 funciona");
   parrafoPLANTILLADOSBOTONES.innerHTML = `PLANTILLADOSBOTONES 2 funciona ${txtPLANTILLADOSBOTONES.value}`;
   
@@ -253,7 +181,7 @@ const btnPLANTILLAUNBOTON = document.querySelector("#btnPLANTILLAUNBOTON");
 const parrafoPLANTILLAUNBOTON = document.querySelector("#parrafoPLANTILLAUNBOTON");
 
 btnPLANTILLAUNBOTON.addEventListener("click",function(){
-
+  //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
   alert("PLANTILLA UN BOTON funciona");
   parrafoPLANTILLAUNBOTON.innerHTML = `PLANTILLA UN BOTON funciona ${txtPLANTILLAUNBOTON.value}` ;
   
