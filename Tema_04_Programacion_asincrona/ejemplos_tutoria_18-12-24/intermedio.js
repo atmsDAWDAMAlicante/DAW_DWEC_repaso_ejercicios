@@ -41,9 +41,15 @@ const parrafoNUMERO2 = document.querySelector("#parrafoNUMERO2");
 
 btnNUMERO2.addEventListener("click",function(){
 
-  alert("NUMERO2 funciona");
-  print(txtNUMERO2.value,2)
+  //alert("NUMERO2 funciona");
 
+ async function esUnaPromesa(){
+    //setTimeout(()=>console.log("Hola"),1000)
+    return Math.pow(2,4)
+  }
+
+  let queEs = esUnaPromesa();
+ queEs.then((data)=>print(`El resultado de la potencia es ${data}`,2))
 
 }); 
 
