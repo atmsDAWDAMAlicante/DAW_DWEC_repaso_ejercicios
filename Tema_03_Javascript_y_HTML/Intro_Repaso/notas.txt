@@ -1,0 +1,26 @@
+// * as misJedis from './jedis.json';
+
+// USANDO REQUIRES
+//const misJedis = require('./jedis.json');
+
+// USANDO FETCH
+/*
+let array = [];
+
+// Cargar el archivo JSON usando fetch
+fetch('./jedis.json')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Convertir la respuesta a JSON
+  })
+  .then((data) => {
+    array.push(...data); // Añadir cada objeto al array
+    console.log(array); // Mostrar el array en la consola
+  })
+  .catch((error) => {
+    console.error('Error cargando el JSON:', error);
+  });
+
+*/
