@@ -8,9 +8,31 @@ const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 btnNUMERO1.addEventListener("click",function(){
 
-  alert(miModulo.sumar(2,3));
+  alert(`El módulo funciona: ${miModulo.sumar(2,3)}`);
   print(txtNUMERO1.value,1)
 
+
+
+
+
+  function functionQueDevuelveUnaPromesa(){
+    return new Promise((resolve, reject)=>{
+
+    //return fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    throw new Error
+    
+      resolve("Muy bien")
+      reject("Muy mal")
+    })
+  }
+
+  let laPromesa1 = functionQueDevuelveUnaPromesa();
+  laPromesa1.then(
+    (mensaje)=>alert(`${mensaje}`)
+  ).catch((mensaje)=>alert(`${mensaje}`))
+  
+  print(laPromesa1,1)
+  
 });// Fin del AddEventListener 
 
 // FIN CÓDIGO de los Controles DIV NUMERO1

@@ -22,10 +22,29 @@
     
     <!-- DIV NUMERO1-->
     <div>
-        <span class="marcadorojo" style="background-color: #FFFFFF;">NUMERO1</span><br>
+        <span class="marcadorojo" style="background-color: #FFFFFF;">NUMERO1: REPASO tutoría anterior</span><br>
         <input type="text" id="txtNUMERO1" name="txtNUMERO1"><br>
         <button id="btnNUMERO1" class="escriturablanca fondoRojo">NUMERO1</button>
-        <p id="parrafoNUMERO1">______</p>
+        <pre>
+          function functionQueDevuelveUnaPromesa(){
+            return new Promise((resolve, reject)=&gt;{ // AL LORO AQUÍ QUE ES UNA FUNCIÓN FLECHA
+              // CON DOS PARÁMETROS RESOLVER Y RECHAZAR
+              // EL PARÁMETRO DE LA FUNCIÓN RESOLVER ESTARÁ DISPONIBLE EN EL THEN
+              resolve("Muy bien")
+              reject("Muy mal")
+            }) // CIERRE DE LA PROMESA
+          }
+        
+          let laPromesa1 = functionQueDevuelveUnaPromesa(); // RECOGE LA PROMESA
+          laPromesa1.then( // then tiene dos funciones como parámetros o uno y el del fallo va al catch
+            (mensaje)=&gt;alert(`${mensaje}`),
+            (mensaje)=&gt;alert(`${mensaje}`) // segunda función si hubiera un error que también podría ir al catch
+
+            // LO QUE DEVUELVE EL THEN return ES UNA NUEVA PROMESA then(valor)
+          )
+        
+        </pre>
+        <p id="parrafoNUMERO1"></p>
     </div><!-- FIN DIV NUMERO1 -->
 
     <!-- DIV NUMERO2-->
