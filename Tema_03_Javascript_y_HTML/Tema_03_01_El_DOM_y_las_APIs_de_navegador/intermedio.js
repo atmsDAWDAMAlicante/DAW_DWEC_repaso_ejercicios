@@ -66,8 +66,18 @@ const parrafoNUMERO3 = document.querySelector("#parrafoNUMERO3");
 
 btnNUMERO3.addEventListener("click",function(){
   //CÓDIGO DEL MÉTODO DE GESTIÓN PRESUPUESTO
-  alert("NUMERO3 funciona");
-  print(txtNUMERO3.value,3)
+  //alert("NUMERO3 funciona");
+
+  const enlaceA = document.querySelector("#enlaceA");
+  let resultado = "<ol>"
+  for (let elementos of enlaceA.attributes){
+    resultado += `<li>${elementos.name} ${elementos.value}</li>`
+  }
+  resultado += "</ol>"
+resultado += "<p>" + enlaceA.dataset.atributo1 + "</p>"
+  print(resultado,3)
+
+
 
 }); 
 // FIN CÓDIGO de los Controles DIV NUMERO3
