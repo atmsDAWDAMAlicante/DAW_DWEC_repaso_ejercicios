@@ -8,8 +8,23 @@ const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 btnNUMERO1.addEventListener("click",function(){
 
-  alert(miModulo.sumar(2,3));
-  print(txtNUMERO1.value,1)
+  //alert(miModulo.sumar(2,3));
+  let resultado = "";
+  parrafoNUMERO1.innerHTML= "";
+
+  // definición de una colección de nodos de index.html
+
+   let coleccionNodos1 = document.documentElement;
+
+  resultado += `El atributo lang tiene el valor ${coleccionNodos1.lang}`; // devuelve "es" -- esto es un objeto
+  let coleccionNodos2 = document.body.childNodes;
+  resultado += "<ol>"
+  for (let elementosColeccion2 of coleccionNodos2){
+    resultado += `<li>${elementosColeccion2}</li>`
+  }
+  resultado += "</ol>"
+  console.log(resultado)
+  print(resultado,1)
 
 });// Fin del AddEventListener 
 
@@ -139,7 +154,8 @@ btnPLANTILLAUNBOTON.addEventListener("click",function(){
 function print(mensaje, numero){
   let cadenaParrafo = `parrafoNUMERO${numero}`
   let elementoEnConcreto = document.querySelector("#"+cadenaParrafo)
-  elementoEnConcreto.innerHTML += `NUMERO${numero} funciona ${mensaje}<br>`;
+  //elementoEnConcreto.innerHTML += `NUMERO${numero} funciona ${mensaje}<br>`;
+  elementoEnConcreto.innerHTML += `${mensaje}<br>`;
   /*
   let elementoConGetElementById = document.getElementById(cadenaParrafo);
   elementoConGetElementById.innerHTML = `NUMERO6 funciona ${mensaje}`;
