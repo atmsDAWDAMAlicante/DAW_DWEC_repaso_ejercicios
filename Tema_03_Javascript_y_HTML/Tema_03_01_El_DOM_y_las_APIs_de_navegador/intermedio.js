@@ -36,12 +36,23 @@ btnNUMERO1.addEventListener("click",function(){
 const txtNUMERO2 = document.querySelector("#txtNUMERO2");
 const btnNUMERO2 = document.querySelector("#btnNUMERO2");
 const parrafoNUMERO2 = document.querySelector("#parrafoNUMERO2");
-
+const bloque1apartadoA = document.querySelector("#bloque1apartadoA");
+const bloque1apartadoB = document.querySelector("#bloque1apartadoB");
 btnNUMERO2.addEventListener("click",function(){
 
-  alert("NUMERO2 funciona");
-  print(txtNUMERO2.value,2)
-
+  //alert("NUMERO2 funciona");
+  print("",2)
+  // nuevoA crea un título
+  let nuevoA = document.createElement("span");
+  nuevoA.textContent = "Hola, Don Pepito";
+  // nuevoB crea un párrafo
+  let nuevoB = document.createElement("p");
+  nuevoB.textContent = "Hola, Don José";
+  bloque1apartadoB.append(nuevoB);
+  bloque1apartadoA.append(nuevoA);
+  // Ahora quiero utilizar outerHTML en el h1
+  // outerHTML REEMPLAZA
+  bloque1apartadoA.outerHTML = "<span class='marcadorojo'>Hola, Don Pepito</span>";
 
 }); 
 
