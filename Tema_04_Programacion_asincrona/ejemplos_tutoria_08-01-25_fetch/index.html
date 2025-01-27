@@ -22,10 +22,12 @@
     
     <!-- DIV NUMERO1-->
     <div>
-        <span class="marcadorojo" style="background-color: #FFFFFF;">NUMERO1: REPASO tutoría anterior</span><br>
+        <span class="marcadorojo" style="background-color: #FFFFFF;">REPASO tutoría anterior</span><br>
         <input type="text" id="txtNUMERO1" name="txtNUMERO1"><br>
-        <button id="btnNUMERO1" class="escriturablanca fondoRojo">NUMERO1</button>
+        <button id="btnNUMERO1" class="escriturablanca fondoRojo">REPASO tutoría anterior</button>
         <pre>
+          (para ver hoy: librerías que ya tienen las promesas implementadas).
+
           function functionQueDevuelveUnaPromesa(){
             return new Promise((resolve, reject)=&gt;{ // AL LORO AQUÍ QUE ES UNA FUNCIÓN FLECHA
               // CON DOS PARÁMETROS RESOLVER Y RECHAZAR
@@ -49,9 +51,63 @@
 
     <!-- DIV NUMERO2-->
     <div>
-        <span class="marcadoazul" style="background-color: #FFFFFF;">NUMERO2</span><br>
+        <span class="marcadoazul" style="background-color: #FFFFFF;">Fetch</span><br>
         <input type="text" id="txtNUMERO2" name="txtNUMERO2"><br>
-        <button id="btnNUMERO2" class="fondoAzul escriturablanca">NUMERO2</button>
+        <button id="btnNUMERO2" class="fondoAzul escriturablanca">Fetch</button>
+        <pre>
+          fetch devuelve una promesa. No es necesario hacer el new Promise.
+          Fetch permite hacer peticiones con js
+          fetc dos parámetros 
+          a) cadena URL o un objeto URL o un objeto request
+          b) objeto con las opciones de la petición
+
+
+          OBJETO URL para modificar
+          let direccion = new URL('la url a buscar')
+          dirección tendrá varias propiedades: protocol, host, pathname, search, y aadir searchParams.append("nuevo", "valor")
+
+
+          opciones de la petición (el b) que tiene propiedades method, headers, body, credentials, signal 
+
+
+          RESULTADO DE FETCH: UNA PROMESA - cuando se resuelva en el then habrá un objeto de tipo response.
+          En MDN https://developer.mozilla.org/es/docs/Web/API/Response
+
+          VER propiedad status 200 etc 
+
+          MÉTODOS
+          text() para recoger texto 
+          json()
+          blob() binario
+
+          Estos métodos devuelven una promesa. La resolución de esa promesa es el resultado 
+
+          RECAPITULACIÓN:
+          fetch devuelve una promesa que devuelve un objeto de tipo response.
+          para acceder a los datos devueltos hay que lanzar json, blob que es una SEGUNDA PROMESA 
+
+          1º PROMESA DEVUELVE RESPONS 
+          2º PROMESA se usa json por ejemplo y YA SE DEVUELVEN LOS DATOS.
+
+          async function mi funcion (){
+            let respuesta = await fetch('una url')
+          }
+
+          if (respuesta.ok){ // devuelve true o false
+              let datos = await respuesta.json() // SEGUNDA PROMESA
+              // datos tendrá el resultado el json de los datos.
+          }
+
+
+          CON PROMESAS 
+          fetch('url').then(function(respuesta){
+            if(respuesta.ok){
+              return respuesta.json()// aquí se devuelve la segunda promesa
+            }
+          }).then(function(data){
+            tratamiento de los datos que está en data 
+          })
+        </pre>
         <p id="parrafoNUMERO2">______</p>
     </div><!-- FIN DIV NUMERO2 -->
 

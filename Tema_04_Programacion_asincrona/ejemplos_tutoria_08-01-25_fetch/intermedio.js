@@ -8,8 +8,27 @@ const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 btnNUMERO1.addEventListener("click",function(){
 
-  alert(`El módulo funciona: ${miModulo.sumar(2,3)}`);
-  print(txtNUMERO1.value,1)
+  //alert(`El módulo funciona: ${miModulo.sumar(2,3)}`);
+  let resultado = "";
+  function fucionPromesa(){
+    return fetch('jedis.json');
+  }
+
+  const promesa1 = fucionPromesa();
+  //resultado += promesa1;
+
+  promesa1.then((data)=>data.json())
+  .then((data)=>{
+    for (let elemento of data){
+      //alert(elemento['nombre'])
+      resultado += `${elemento['nombre']}<br>`;
+      console.log(resultado);
+    }
+
+  }).then(()=>print(resultado,1))
+
+
+  
 
 
 
@@ -18,8 +37,8 @@ btnNUMERO1.addEventListener("click",function(){
   function functionQueDevuelveUnaPromesa(){
     return new Promise((resolve, reject)=>{
 
-    //return fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-    throw new Error
+    return fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    //throw new Error
     
       resolve("Muy bien")
       reject("Muy mal")
@@ -31,7 +50,7 @@ btnNUMERO1.addEventListener("click",function(){
     (mensaje)=>alert(`${mensaje}`)
   ).catch((mensaje)=>alert(`${mensaje}`))
   
-  print(laPromesa1,1)
+  //print(laPromesa1,1)
   
 });// Fin del AddEventListener 
 
