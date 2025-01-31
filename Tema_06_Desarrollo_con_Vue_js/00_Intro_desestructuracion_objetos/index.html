@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desestructuración de objetos</title>
+</head>
+<body>
+    <h1>Desestructuración de objetos</h1>
+    
+<div id="principal"></div>
+<button id="boton1">Boton1 sobre el objeto literal</button>
+<button id="boton2">Boton2 Función constructora</button>
+
+<script>
+// CREAR UN OBJETO QUE SERÍA COMO EL OBJETO VUE
+// Y SACARLE LA FUNCIÓN createApp
+
+// 1.1 - Con un objeto literal
+
+// 1.1.1 - El objeto literal
+let objeto1 = {
+    suma1:()=>"Esto es una suma 1",
+    resta1:()=>"Esto es una resta"
+}
+
+// 1.1.2 Desestructuración de la función suma1 del objeto literal
+const {suma1} = objeto1;
+
+// 1.2 - Con una función constructora
+
+// 1.2.1 - Función constructora
+function objeto2() {
+    return {
+        suma2:()=>"Esto es una suma 2",
+    }
+}
+
+// 1.2.2 - Creación de una instancia del objeto de la función constructora
+const instancia = new objeto2();
+
+// 1.2.3 - Desestructuración de la función suma2 de la instancia del objeto creado con una función constructora
+const {suma2} = instancia;
+
+
+
+// 1.3 Impresión del resultado en el div#principal
+const principal = document.querySelector("#principal");
+const boton1 = document.querySelector("#boton1");
+const boton2 = document.querySelector("#boton2");
+
+boton1.addEventListener("click",()=>principal.textContent = suma1());
+
+boton2.addEventListener("click",()=>principal.textContent = suma2());
+
+</script>
+</body>
+</html>
