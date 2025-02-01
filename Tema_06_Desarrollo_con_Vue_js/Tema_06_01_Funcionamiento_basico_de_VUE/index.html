@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionamiento básico de VUE </title>
+    <link href="../estilos.css" rel="stylesheet">
+    <style>
+        
+    </style>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <h1>Funcionamiento básico de VUE </h1>
     
 <div id="app">
-{{saludo1}}
+{{saludo1}} <!-- INTERPOLACIÓN -->
+<div v-html="parrafo1"></div><!-- DIRECTIVA -->
 <!-- {{saludo1.mayusculas}}-->
 </div>
 
@@ -22,8 +27,8 @@ const app = createApp({ // UN PARÁMETRO QUE ES UN OBJETO QUE CONTIENE:
 // computed: propiedad que es un objeto y sus propiedades son funciones referenciadas como VARIABLES (sin paréntesis)
 data(){ // data: function (){}
     return {
-        saludo1: 'Saludo inicial'
-    
+        saludo1: 'Saludo inicial', // INTERPOLACIÓN 
+        parrafo1: '<p><span class="marcadorojo">Hola Don Pepito</span></p>' // DIRECTIVA esto se pone con v-html
     }
 },
 methods: {

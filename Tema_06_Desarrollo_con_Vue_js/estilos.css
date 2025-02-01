@@ -1,0 +1,33 @@
+/* ETIQUETAS */
+body{background-color: #000000;}
+div{background-color: #FFFFFF;padding-top: 10px;padding-left:20px;margin-top: 5px;border: 1px solid #00FFFF;border-radius:20px;}
+h1{margin-top:-10px;margin-bottom: -5px;}
+
+/* TEXTO BÁSICO */
+.negrita{font-weight: bold;}
+.cursiva{font-style: italic;}
+.subrayado{text-decoration: underline;}
+    
+/* FONDOS */
+.fondoAzul{background-color: #0000FF;}
+.fondoRojo{background-color: #FD0000;}
+.fondoVerde{background-color: #339900;}
+.fondoAmarillo{background-color: #FFFF00;}
+.fondoNegro{background-color: #000000;}
+.fondoBlanco{background-color: #FFFFFF;}
+.fondoMorado{background-color: #FF00FF;}
+.fondoAzulClaro{background-color: #00FFFF;}
+      
+/* COLOR TEXTO */
+.marcadoazul{color: #0000FF;}
+.marcadorojo{color: #FD0000;}
+.marcadoverde{color: #339900;}
+.marcadoamarillo{color: #FFFF00;}
+.escrituranegra{color: #000000;}
+.escriturablanca{color: #FFFFFF;}
+.marcadomorado{color: #FF00FF;}
+.marcadoazulclaro{color: #00FFFF;}
+
+/* ELEMENTOS DE LOS FORMULARIO */
+button{border: 1px solid #000000;padding:3px;}
+button, input {margin-top:3px;border-radius:10px;}
