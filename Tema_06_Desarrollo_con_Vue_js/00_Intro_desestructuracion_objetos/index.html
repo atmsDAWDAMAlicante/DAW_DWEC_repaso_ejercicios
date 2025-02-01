@@ -31,9 +31,8 @@ const {suma1} = objeto1;
 
 // 1.2.1 - Función constructora
 function objeto2() {
-    return {
-        suma2:()=>"Esto es una suma 2",
-    }
+    this.suma2 = ()=>"Esto es una suma 2";
+    this.resta2 = ()=> "Esto es una resta 2";
 }
 
 // 1.2.2 - Creación de una instancia del objeto de la función constructora
