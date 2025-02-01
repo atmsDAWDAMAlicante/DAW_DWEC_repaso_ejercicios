@@ -13,11 +13,21 @@
 <body>
     <h1>Funcionamiento básico de VUE </h1>
     
-<div id="app">
+<div id="app"><!-- APERTURA DE LA APP -->
+
 {{saludo1}} <!-- INTERPOLACIÓN -->
 <div v-html="parrafo1"></div><!-- DIRECTIVA -->
 <!-- {{saludo1.mayusculas}}-->
-</div>
+
+
+<div><span v-bind:class="pasaraVerde">Hola, Don José</span></div>
+
+
+<div><span :class="colores.pasaraAzul">Pasó usted por mi casa</span></div>
+
+
+
+</div><!-- CIERRE DE LA APP -->
 
 <script>
 const {createApp} = Vue; // const createApp = Vue.createApp
@@ -28,7 +38,9 @@ const app = createApp({ // UN PARÁMETRO QUE ES UN OBJETO QUE CONTIENE:
 data(){ // data: function (){}
     return {
         saludo1: 'Saludo inicial', // INTERPOLACIÓN 
-        parrafo1: '<p><span class="marcadorojo">Hola Don Pepito</span></p>' // DIRECTIVA esto se pone con v-html
+        parrafo1: '<p><span class="marcadorojo">Hola Don Pepito</span></p>', // DIRECTIVA esto se pone con v-html
+        pasaraVerde:'marcadoverde', // PARA BIND: crear la variable
+        colores: {pasaraRojo:'marcadorojo', pasaraAzul: 'marcadoazul'}
     }
 },
 methods: {
