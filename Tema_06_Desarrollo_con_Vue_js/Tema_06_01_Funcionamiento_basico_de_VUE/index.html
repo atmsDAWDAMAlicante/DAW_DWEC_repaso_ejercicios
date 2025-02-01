@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionamiento básico de VUE </title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>Funcionamiento básico de VUE </h1>
+    
+<div id="app">
+{{saludo1}}
+</div>
+
+<script>
+const {createApp} = Vue; // const createApp = Vue.createApp
+const app = createApp({
+data(){ // data: function (){}
+    return {saludo1: 'Saludo inicial'}
+}
+});
+
+
+app.mount("#app");
+</script>
+
+</body>
+</html>
