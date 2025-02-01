@@ -11,18 +11,32 @@
     
 <div id="app">
 {{saludo1}}
+<!-- {{saludo1.mayusculas}}-->
 </div>
 
 <script>
 const {createApp} = Vue; // const createApp = Vue.createApp
-const app = createApp({
+const app = createApp({ // UN PARÁMETRO QUE ES UN OBJETO QUE CONTIENE: 
+// data() que es una propiedad que es una función que devuelve un objeto (return las variables de estado) 
+// methods: propiedad que es un objeto y sus propiedades son los métodos. La referencia a data es con this
+// computed: propiedad que es un objeto y sus propiedades son funciones referenciadas como VARIABLES (sin paréntesis)
 data(){ // data: function (){}
-    return {saludo1: 'Saludo inicial'}
+    return {
+        saludo1: 'Saludo inicial'
+    
+    }
+},
+methods: {
+    unMetodo:()=>console.log(this.saludo1)
+},
+computed: {
+    mayusculas(){ return this.saludo1.toUpperCase()}
 }
 });
 
 
-app.mount("#app");
+app.mount("#app"); // A partir de aquí, dentro del div que contiene el id se podrá hacer 
+// referencia a los datos y métodos
 </script>
 
 </body>
