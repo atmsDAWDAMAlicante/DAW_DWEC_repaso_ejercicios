@@ -1,5 +1,5 @@
 import * as miModulo from './funciones.js';
-
+let salto = "<br>";
 
 // Funciones de Prueba
 function saludar1(){alert("Hola, Don Pepito")}
@@ -17,10 +17,14 @@ const parrafoNUMERO1 = document.querySelector("#parrafoNUMERO1");
 
 
 
-btnNUMERO1.addEventListener("click",function(){
-
-  alert(miModulo.sumar(2,3));
-  print(txtNUMERO1.value,1)
+btnNUMERO1.addEventListener("click",function(event){
+  parrafoNUMERO1.textContent = "";
+  let mensaje = "Información de las funciones manejadoras de eventos:<br>";
+  mensaje += `El this: <span class="marcadorojo">${this}</span> elemento sobre el que se produce el evento${salto}`;
+  mensaje += `type es el tipo de evento producido <span class="marcadorojo">${event.type}</span>${salto}`;
+  mensaje += `currentTarget <span class="marcadorojo">${event.currentTarget}</span> elemento asociado al manejador${salto}`;
+  mensaje += `target <span class="marcadorojo">${event.target}</span> elemento sobre el que se produce el evento${salto}`;
+  parrafoNUMERO1.innerHTML = mensaje;
 
 });// Fin del AddEventListener 
 
@@ -150,7 +154,7 @@ btnPLANTILLAUNBOTON.addEventListener("click",function(){
 function print(mensaje, numero){
   let cadenaParrafo = `parrafoNUMERO${numero}`
   let elementoEnConcreto = document.querySelector("#"+cadenaParrafo)
-  elementoEnConcreto.innerHTML += `NUMERO${numero} funciona ${mensaje}<br>`;
+  elementoEnConcreto.innerHTML += `<br>`;
   /*
   let elementoConGetElementById = document.getElementById(cadenaParrafo);
   elementoConGetElementById.innerHTML = `NUMERO6 funciona ${mensaje}`;
