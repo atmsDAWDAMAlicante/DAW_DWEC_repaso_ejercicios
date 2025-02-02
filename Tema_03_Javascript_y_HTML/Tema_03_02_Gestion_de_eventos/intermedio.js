@@ -37,12 +37,58 @@ const txtNUMERO2 = document.querySelector("#txtNUMERO2");
 const btnNUMERO2 = document.querySelector("#btnNUMERO2");
 const parrafoNUMERO2 = document.querySelector("#parrafoNUMERO2");
 
-btnNUMERO2.addEventListener("click",function(){
+// 1º Un array de jedis
+let jedis2 = [{"nombre": "Yoda","luz": true},
+  {"nombre": "Darth Sidious","luz": false},
+  {"nombre": "Obi Wan Kenobi","luz": true},
+  {"nombre": "Qi Gon Jin","luz": true},
+  {"nombre": "Darth Maul","luz": false},
+  {"nombre": "Darth Vader","luz": false}]
 
+// 2º se crea un objeto gestionLuzJedis que implementa la función handleEvent
+let gestionLuzJedis = {
+  // dentro de la función handle va un this.---lo que se le pasa---.la propiedad de cada objeto del array
+  handleEvent: function(evento){
+    alert(`${this.datosJedi.nombre}${this.datosJedi.luz}`);
+  }
+};
+
+// 3º EL RESULTADO SE MOSTRARÁ EN EL <P> PARRAFO2
+// La lista de HTML
+let listaMostrar = "<ul>";
+
+// BUCLE DONDE SE FORMA LA LISTA
+for (let jedi of jedis2)
+{
+  // 3.1 - Crear el <li> de la lista --- ESTAMOS EN EL BUCLE
+  let elementoLista = document.createElement("li");
+  elementoLista.textContent = `${jedi.nombre} ${jedi.luz}`
+
+  // 3.2 - Crear el botón
+  let crearBoton = document.createElement("button")
+  crearBoton.textContent = "Editar Luz"
+
+
+  // 3.3 - Crear un manejador de eventos para cada Jedi
+  // CADA MANEJADOR NO ES LO DE ARRIBA QUE CONTIENE EL handle
+  let gestionLuzManejador = Object.create(gestionLuzJedis);
+  // Asignar el jedi actual al manejador ATENCIÓN QUE AQUÍ APARECE EL DATOS JEDI
+  gestionLuzManejador.datosJedi = jedi; // Asignar el jedi actual
+
+
+  // 3.4 - Añadir el manejador de eventos al botón
+  crearBoton.addEventListener("click", gestionLuzManejador);
+
+  // Añadir el botón y el texto al contenedor
+  elementoLista.appendChild(crearBoton);
+  parrafoNUMERO2.appendChild(elementoLista);
+}
+
+
+
+btnNUMERO2.addEventListener("click",function(){
   alert("NUMERO2 funciona");
   print(txtNUMERO2.value,2)
-
-
 }); 
 
 // FIN CÓDIGO de los Controles DIV NUMERO2
