@@ -26,8 +26,12 @@
 
 <p v-show="verdad==true">Hola, Don Pepito</p>
 <p v-show="verdad==false">Hola, Don José</p>
-
-
+<hr>
+<h2>Los Jedis</h2>
+<ul>
+    <!--<li v-for="unJedi in arrayJedis1">{{unJedi}}</li>-->
+    <li v-for="unJedi in arrayJedis2" :key="unJedi.nombre">{{unJedi.nombre}}</li>
+</ul>
 <button @click="salduo1cambio">Cambio 1</button>
 
 
@@ -58,7 +62,10 @@ const app = createApp({
             saludo4atributos: {
                 style:"color:#FF0000;",
                 class:"negrita"},
-            verdad:true // lo mismo con style
+            verdad:true, // lo mismo con style
+            arrayJedis1:[{"nombre": "Yoda","luz": true},{"nombre": "Darth Sidious","luz": false},{"nombre": "Obi Wan Kenobi","luz": true},{"nombre": "Mace Windu","luz": true},{"nombre": "Qi Gon Jin","luz": true},{"nombre": "Darth Maul","luz": false},{"nombre": "Darth Vader","luz": false},{"nombre": "Luke Skywalker","luz": true},{"nombre": "Ahsoka Tano","luz": true},{"nombre": "Conde Dooku","luz": false},{"nombre": "Asajj Ventress","luz": false}],
+            arrayJedis2:[{nombre: "Yoda",luz: true},{nombre: "Darth Sidious",luz: false},{nombre: "Obi Wan Kenobi",luz: true},{nombre: "Mace Windu",luz: true},{nombre: "Qi Gon Jin",luz: true},{nombre: "Darth Maul",luz: false},{nombre: "Darth Vader",luz: false},{nombre: "Luke Skywalker",luz: true},{nombre: "Ahsoka Tano",luz: true},{nombre: "Conde Dooku",luz: false},{nombre: "Asajj Ventress",luz: false}],
+            otraCosa: true
         }
     },
     methods: {
