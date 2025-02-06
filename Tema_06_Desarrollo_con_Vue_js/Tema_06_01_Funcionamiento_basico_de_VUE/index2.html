@@ -18,7 +18,14 @@
 <p><span v-bind:class="saludo3a">{{saludo3b}}</span></p>
 <p><span v-bind="saludo4atributos">Por su casa yo pasé</span></p>
 <p><span :class="{marcadomorado:verdad, subrayado:verdad}">Vio usted a mi abuela</span></p>
+<!-- entre comillas tiene que se JavaScript -->
+<template v-if="verdad==true"><p>Adiós, Don Pepito</p></template>
+<template v-else><p>Adiós, Don José</p></template>
+<!-- v-show oculta pero sí aparecen -->
 
+
+<p v-show="verdad==true">Hola, Don Pepito</p>
+<p v-show="verdad==false">Hola, Don José</p>
 
 
 <button @click="salduo1cambio">Cambio 1</button>
@@ -51,7 +58,7 @@ const app = createApp({
             saludo4atributos: {
                 style:"color:#FF0000;",
                 class:"negrita"},
-            verdad:true
+            verdad:true // lo mismo con style
         }
     },
     methods: {
