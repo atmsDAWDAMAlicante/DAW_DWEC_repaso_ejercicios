@@ -21,4 +21,4 @@ https://vuejs.org/guide/introduction.html
 Arriba izquierda-
 Options-Composition
 NOSOTROS: OPTIONS que utiliza un objeto
-función data que devuelve un objeto
+composition exporta un objeto

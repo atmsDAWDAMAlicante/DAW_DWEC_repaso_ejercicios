@@ -11,6 +11,71 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+<div id="app">
+<p>{{saludo1}}</p>
+<p>{{actualizarSaludo1}}</p>
+<p v-html="saludo2"></p>
+<p><span v-bind:class="saludo3a">{{saludo3b}}</span></p>
+<p><span v-bind="saludo4atributos">Por su casa yo pasé</span></p>
+<p><span :class="{marcadomorado:verdad, subrayado:verdad}">Vio usted a mi abuela</span></p>
+
+
+
+<button @click="salduo1cambio">Cambio 1</button>
+
+
+<p><img :src="saludo3img"></p>
+
+
+
+
+
+
+</div>
+
+
+
+<script>
+const {createApp} = Vue;
+const app = createApp({ 
+    // la función createApp() es una función
+    // la función createApp(OBJETO) tiene un parámetro que es un objeto
+    // el objeto-parámetro tiene
+    data(){ // primer elemento del objeto ES UNA FUNCIÓN QUE OBLIGATORIAMENTE DEVUELVE UN OBJETO
+        return{
+            saludo1: "Hola, Don Pepito", // INTERPOLACIÓN
+            saludo2: "<span class='marcadoazul'>Hola, Don José</span>", // DIRECTIVA
+            saludo3a: "marcadoverde",
+            saludo3b: "Pasó usted por mi casa",
+            saludo3img: "https://s3.ppllstatics.com/rc/www/multimedia/2023/02/08/fofo-1200x840.gif",
+            saludo4atributos: {
+                style:"color:#FF0000;",
+                class:"negrita"},
+            verdad:true
+        }
+    },
+    methods: {
+        // Se puede hacer referencia a las variables de estado de arriba con THIS
+        salduo1cambio(){
+            this.saludo1 = "Hola, Don José"
+            this.verdad = !this.verdad;
+        }
+    },
+    computed:{ // Objeto que define funciones a las que se hace referencia como por nombres
+        actualizarSaludo1(){
+            let mensaje = "Hola, Don Pepito";
+            console.log(mensaje);
+            return mensaje;
+        }
+    }
+
+})
+
+app.mount("#app")
+
+
+</script>
+
     
 </body>
 </html>
