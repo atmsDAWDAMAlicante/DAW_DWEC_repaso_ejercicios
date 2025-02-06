@@ -35,6 +35,15 @@
 <button @click="salduo1cambio">Cambio 1</button>
 
 
+<div>
+<form action="http://wwww.micasa.es" v-on:submit.prevent="pararElEnvio('Bien',$event)">
+    <input type="text" @keydown.a="sumarUnoMas($event)"><br>
+        <input type="submit">
+</form></div>
+
+
+
+
 <p><img :src="saludo3img"></p>
 
 
@@ -47,6 +56,8 @@
 
 
 <script>
+// ME QUEDO EN EL DATA BINDING MINUTO 46 DE LA TUTORÍA
+
 const {createApp} = Vue;
 const app = createApp({ 
     // la función createApp() es una función
@@ -65,7 +76,8 @@ const app = createApp({
             verdad:true, // lo mismo con style
             arrayJedis1:[{"nombre": "Yoda","luz": true},{"nombre": "Darth Sidious","luz": false},{"nombre": "Obi Wan Kenobi","luz": true},{"nombre": "Mace Windu","luz": true},{"nombre": "Qi Gon Jin","luz": true},{"nombre": "Darth Maul","luz": false},{"nombre": "Darth Vader","luz": false},{"nombre": "Luke Skywalker","luz": true},{"nombre": "Ahsoka Tano","luz": true},{"nombre": "Conde Dooku","luz": false},{"nombre": "Asajj Ventress","luz": false}],
             arrayJedis2:[{nombre: "Yoda",luz: true},{nombre: "Darth Sidious",luz: false},{nombre: "Obi Wan Kenobi",luz: true},{nombre: "Mace Windu",luz: true},{nombre: "Qi Gon Jin",luz: true},{nombre: "Darth Maul",luz: false},{nombre: "Darth Vader",luz: false},{nombre: "Luke Skywalker",luz: true},{nombre: "Ahsoka Tano",luz: true},{nombre: "Conde Dooku",luz: false},{nombre: "Asajj Ventress",luz: false}],
-            otraCosa: true
+            otraCosa: true,
+            unoMas: 1
         }
     },
     methods: {
@@ -73,6 +85,16 @@ const app = createApp({
         salduo1cambio(){
             this.saludo1 = "Hola, Don José"
             this.verdad = !this.verdad;
+        },
+        pararElEnvio(mensaje, evento){
+            console.log(mensaje)
+            //evento.preventDefault(); ESTO YA LO HACE EL @submit.prevent
+            // EL SUBMIT VA EN EL FORM
+            alert(this.saludo1 + "Operación realizada con éxito")
+        },
+        sumarUnoMas(evento){
+            this.unoMas++;
+            console.log(this.unoMas)
         }
     },
     computed:{ // Objeto que define funciones a las que se hace referencia como por nombres
