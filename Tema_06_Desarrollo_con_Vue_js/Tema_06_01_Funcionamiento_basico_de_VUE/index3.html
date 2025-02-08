@@ -11,7 +11,19 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div id="app">{{probando}}</div>
+    <div id="app">
+        <p>{{probando}}</p>
+        <p v-html="probandoHTML"></p>
+        <img :src="imagen">
+        <p>
+            <button @click="cambiarClase">Cambiar la frase</button>
+            <span :class="{marcadorojo: onReady}">{{segundaFrase}}</span>
+        </p>
+        <p>{{abuelaFrase}}</p>
+        <div v-if="final==true">{{fraseFinal}}</div>
+        <p v-else="final==false">{{fraseFinal}}</p>
+        <button @click="cambiarFinal">Cierre</button>
+    </div><!-- CIERRE APP -->
 
 
 
@@ -29,13 +41,57 @@
         // seleccion múltiple guarda un array
         const { createApp } = Vue;
         const app = createApp({
-            data(){
+            data(){ // FUNCIÓN QUE DEVUELVE UN OBJETO
                 return {
-                    probando: "Hola"
+                    probando: "Hola, Don Pepito",
+                    probandoHTML: "<h1><span :class='{marcadoverde: onReady}'>Hola, Don José</span></h1>",
+                    imagen:"./trio_Dioses.png",
+                    segundaFrase: "¿Pasó usted por mi casa?",
+                    onReady: true,
+                    abuela: "¿Vio usted a mi abuela?",
+                    adios: "Adiós, Don Pepito",
+                    final: true
+                    
+                }
+            },
+            methods:{ // OBJETO
+                cambiarClase: function(){
+                    this.onReady = !this.onReady
+                    if(this.onReady==false){
+                        this.segundaFrase= "¡Por su casa yo pasé!"
+                        this.abuela = "A su abuela yo la vi"
+                         }
+                    else{
+                        this.segundaFrase = "¿Pasó usted por mi casa?";
+                        this.abuela = "¿Vio usted a mi abuela?"
+                    }
+
+                },
+                cambiarFinal:()=>{
+                    this.final = !this.final;
+                    console.log(this.final)
+                    
+
+                    
+                }
+            },
+            computed:{
+                abuelaFrase: function(){
+                    return this.abuela;
+                },
+                fraseFinal: ()=>{
+                    if(this.final)
+                    {
+                        this.adios = "Adiós, Don Pepito."
+                    }
+                    else{
+                        this.adios = "Adiós, Don José."
+                    }
+                    console.log(this.adios)
+                    return this.adios
                 }
             }
-        })
-        app.mount("#app");
+        }).mount("#app");
     </script>
     
 </body>
