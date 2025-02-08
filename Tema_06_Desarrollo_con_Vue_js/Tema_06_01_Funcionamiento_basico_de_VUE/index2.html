@@ -33,8 +33,12 @@
     <li v-for="unJedi in arrayJedis2" :key="unJedi.nombre">{{unJedi.nombre}}</li>
 </ul>
 <button @click="salduo1cambio">Cambio 1</button>
-
-
+<p>NO SE DEBE USAR V-FOR Y V-IF EN LA MISMA LÍNEA</p>
+<template v-for="num in arraySimple">
+<ul>
+    <li  v-if="num<5">{{num}}</li>
+</ul>
+</template>
 <div>
 <form action="http://wwww.micasa.es" v-on:submit.prevent="pararElEnvio('Bien',$event)">
     <input type="text" @keydown.a="sumarUnoMas($event)"><br>
@@ -77,7 +81,8 @@ const app = createApp({
             arrayJedis1:[{"nombre": "Yoda","luz": true},{"nombre": "Darth Sidious","luz": false},{"nombre": "Obi Wan Kenobi","luz": true},{"nombre": "Mace Windu","luz": true},{"nombre": "Qi Gon Jin","luz": true},{"nombre": "Darth Maul","luz": false},{"nombre": "Darth Vader","luz": false},{"nombre": "Luke Skywalker","luz": true},{"nombre": "Ahsoka Tano","luz": true},{"nombre": "Conde Dooku","luz": false},{"nombre": "Asajj Ventress","luz": false}],
             arrayJedis2:[{nombre: "Yoda",luz: true},{nombre: "Darth Sidious",luz: false},{nombre: "Obi Wan Kenobi",luz: true},{nombre: "Mace Windu",luz: true},{nombre: "Qi Gon Jin",luz: true},{nombre: "Darth Maul",luz: false},{nombre: "Darth Vader",luz: false},{nombre: "Luke Skywalker",luz: true},{nombre: "Ahsoka Tano",luz: true},{nombre: "Conde Dooku",luz: false},{nombre: "Asajj Ventress",luz: false}],
             otraCosa: true,
-            unoMas: 1
+            unoMas: 1,
+            arraySimple:[0,1,2,3,4,5,6,7,8,9]
         }
     },
     methods: {
