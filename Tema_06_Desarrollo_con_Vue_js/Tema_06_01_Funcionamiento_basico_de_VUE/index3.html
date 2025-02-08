@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoría ejemplo Data binding - Funcionamiento básico de VUE </title>
+    <link href="../estilos.css" rel="stylesheet">
+    <style>
+        
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">{{probando}}</div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // DATA BINDING
+        // v-model para enlazar entre campos de formulario y variables de estado
+        // radio, checkbox, select se usa en combinación con value
+        // seleccion múltiple guarda un array
+        const { createApp } = Vue;
+        const app = createApp({
+            data(){
+                return {
+                    probando: "Hola"
+                }
+            }
+        })
+        app.mount("#app");
+    </script>
+    
+</body>
+</html>
