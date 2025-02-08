@@ -14,15 +14,29 @@
     <div id="app">
         <p>{{probando}}</p>
         <p v-html="probandoHTML"></p>
-        <img :src="imagen">
+
         <p>
             <button @click="cambiarClase">Cambiar la frase</button>
             <span :class="{marcadorojo: onReady}">{{segundaFrase}}</span>
         </p>
         <p>{{abuelaFrase}}</p>
-        <div v-if="final==true">{{fraseFinal}}</div>
-        <p v-else="final==false">{{fraseFinal}}</p>
+        <div v-if="final">{{fraseFinal}}</div>
+        <p v-else>{{fraseFinal}}</p>
         <button @click="cambiarFinal">Cierre</button>
+        <div>
+            <ul>
+                <li v-for="payaso in payasos" :id="`${payaso.nombre}TOCA${payaso.instrumento}`" 
+                :class="{marcadorojo:onReady}">{{payaso.nombre}} tocaba el {{payaso.instrumento}}</li>
+            </ul>
+        </div>
+        <div>
+            <form action="ejemplo.php" @submit.prevent="verFormulario">
+            <label>Nombre: {{nombreTVE}}</label><br>
+            <input type="text" v-model="nombreTVE">
+            <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <img :src="imagen">
     </div><!-- CIERRE APP -->
 
 
@@ -45,13 +59,19 @@
                 return {
                     probando: "Hola, Don Pepito",
                     probandoHTML: "<h1><span :class='{marcadoverde: onReady}'>Hola, Don José</span></h1>",
-                    imagen:"./trio_Dioses.png",
+                    imagen:"https://cdn-images.dzcdn.net/images/artist/c2b41648bd5bedb941dff358ab2b4374/500x500-000000-80-0-0.jpg",
                     segundaFrase: "¿Pasó usted por mi casa?",
                     onReady: true,
                     abuela: "¿Vio usted a mi abuela?",
-                    adios: "Adiós, Don Pepito",
-                    final: true
-                    
+                    adios: "",
+                    final: true,
+                    payasos: [
+                        {nombre:"Gaby", instrumento:"Saxofón"}, 
+                        {nombre:"Foto", instrumento:"Trompeta"}, 
+                        {nombre:"Miliki", instrumento:"Acordeón"}, 
+                        {nombre:"Fofito", instrumento:"Guitarra"}
+                    ],
+                    nombreTVE:""
                 }
             },
             methods:{ // OBJETO
@@ -67,19 +87,9 @@
                     }
 
                 },
-                cambiarFinal:()=>{
+                cambiarFinal(){
                     this.final = !this.final;
-                    console.log(this.final)
-                    
-
-                    
-                }
-            },
-            computed:{
-                abuelaFrase: function(){
-                    return this.abuela;
-                },
-                fraseFinal: ()=>{
+                    console.log(`${this.final} ${this.adios}`)
                     if(this.final)
                     {
                         this.adios = "Adiós, Don Pepito."
@@ -87,8 +97,18 @@
                     else{
                         this.adios = "Adiós, Don José."
                     }
-                    console.log(this.adios)
-                    return this.adios
+                },
+                verFormulario: function(){
+                    console.log(this.nombreTVE)
+                }
+            },
+            computed:{ // NO SE PUEDEN USAR FUNCIONES FLECHA EN COMPUTED
+                abuelaFrase: function(){
+                    return this.abuela;
+                },
+                fraseFinal(){
+                  
+                    return `EL FINAL DICE: ${this.adios}`
                 }
             }
         }).mount("#app");
