@@ -19,7 +19,7 @@ export default {
 
 <template>
   <componenteHeader></componenteHeader>
-  <EL_COMPONENTE></EL_COMPONENTE>
+  
   
 </template>
 

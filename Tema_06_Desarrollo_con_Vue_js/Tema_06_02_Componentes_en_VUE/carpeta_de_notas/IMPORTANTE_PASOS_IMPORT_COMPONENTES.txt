@@ -1,0 +1,29 @@
+En App.vue
+
+<script setup>
+import EL_COMPONENTE from './components/EL_COMPONENTE.vue'
+
+
+en el template de App.vue
+
+<EL_COMPONENTE></EL_COMPONENTE>
+
+SINTAXIS DEL SCRIPT PARA COMPOSITIONS Y TIENE QUE LLEVAR SETUP
+
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
+import EL_COMPONENTE from './components/EL_COMPONENTE.vue';
+import TheWelcome from './components/TheWelcome.vue'
+</script>
+
+SINTAXIS DEL SCRIPT PARA OPTIONS Y NO LLEVA SETUP 
+<script>
+¿DEBE LLEVAR EL IMPORT?
+
+export default {
+    components: {
+        HelloWorld,
+        EL_COMPONENTE
+    }
+}
+</script>

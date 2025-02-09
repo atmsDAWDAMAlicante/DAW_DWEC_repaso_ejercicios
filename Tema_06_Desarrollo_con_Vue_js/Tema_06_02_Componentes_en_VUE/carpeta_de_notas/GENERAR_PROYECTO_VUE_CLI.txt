@@ -1,0 +1,44 @@
+Para crear una aplicación
+aplicación vue-cli se instala como aplicación global de NodeJS
+npm install -g @vue/cli
+
+Una vez instalada se crea un proyecto con
+vue create miProyecto
+
+INSTRUCCION
+
+npm create vue@latest
+Esto crea la aplicación
+primero lanza 
+Ok to proceded
+pide el nombre
+no typescrip jsx ndada más, ni test cypress
+y sada las tres instrucciones
+en el directorio
+ls tree-- tree /F
+
+
+
+node_moduls están las dependencias está vue y vite y demás
+estará index.html con un div vacío app y la aplicación carga main.js
+main.js importa el componente principal y la carga en el div app
+la aplicación principal está en App.vue que tiene el template, script y style
+
+
+Luego   cd RUTA DEL PROYECTO
+  npm install
+  npm run dev
+
+
+  VITE v6.1.0  ready in 713 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  Vue DevTools: Open http://localhost:5173/__devtools__/ as a separate window
+  ➜  Vue DevTools: Press Alt(⌥)+Shift(⇧)+D in App to toggle the Vue DevTools
+  ➜  press h + enter to show help
+
+para publicar hay que ejecutar 
+npm run build
+
+que crea un directorio dist cuyo contenido se publica

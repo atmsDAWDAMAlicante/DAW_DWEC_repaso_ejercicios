@@ -1,9 +1,15 @@
 /* ETIQUETAS */
-/*body{background-color: #000000;}
+body{background-color: #000000;}
 
 div{padding-top: 10px;padding-left:20px;margin-top: 5px;border: 1px solid #00FFFF;border-radius:20px;}
-*/
+
 /*div{background-color: #FFFFFF;}*/
+header{
+    width: 100%;
+    display: block;
+    border: solid #FF0000 4px;
+    border-radius: 20%;
+}
 h1{margin-top:-10px;margin-bottom: -5px;}
 
 /* TEXTO BÁSICO */

@@ -1,0 +1,44 @@
+minuto 30
+
+despues de computed
+
+computed:{
+
+},
+props: {
+esto está en el minuto 36 el valor se pone en el html-plantilla
+},
+mounted(){
+
+
+}
+
+} FIN DE LA App
+</script>
+
+ME QUEDO EN EL 45
+
+EVENTOS VER MINUTO 1:20:00 CUIDADO CON UPDATE
+peticiones fetch en mounted (minuto 1:22)
+1:25 RECIBIR EL FETCH EN EL DATA beforCreate, create, beforeMount
+1:28 los hooks que no se usaran
+PETICION API GITHUB
+1 en el DATA
+datosGithub : null
+
+methods 
+coger(){
+    fetch(url);.then((res)=>return res.json.then(datos)this.datosGithub = datos
+}
+
+y ahora se muestran en el template
+
+minuto 1:32 como pasar al componnente hijo que es el que tiene que mostrar
+App.vue pasa un prop a un componente hijo que dibuja
+el html del hijo es TESTEABLE
+
+PADRE <componente :datos 
+hio tiene el prop{
+    datos
+}
+en su template <p>{{datos.id}}
