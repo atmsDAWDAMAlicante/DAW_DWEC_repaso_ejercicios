@@ -1,6 +1,4 @@
 <script>
-
-
 export default {
     name: "elComponente",
     data(){
@@ -13,8 +11,6 @@ export default {
 
 }
 </script>
-
-
 <template>
     <div>
    <p>
@@ -28,5 +24,8 @@ export default {
 
 <style>
 .marcadorojo{color:#FF0000;}
-.marcadoazul{color:#0000FF;}
+.marcadoazul{color:#00FF00;font-size:1.9em;}
+div{
+    background-color: black;
+}
 </style>

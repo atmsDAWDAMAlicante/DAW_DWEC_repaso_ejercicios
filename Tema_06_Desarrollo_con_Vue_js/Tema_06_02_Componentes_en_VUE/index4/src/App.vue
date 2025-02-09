@@ -1,27 +1,40 @@
 <!--<script setup>-->
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
+import componenteHeader from './components/componenteHeader.vue';
 import EL_COMPONENTE from './components/EL_COMPONENTE.vue';
-import TheWelcome from './components/TheWelcome.vue'
 
 export default {
     components: {
-        HelloWorld,
-        EL_COMPONENTE
+        EL_COMPONENTE,
+        componenteHeader
+        //nav,
+        //aside,
+        //section,
+        //footer
     }
 }
 
 </script>
 
 <template>
-<div>Hola mundo</div>
-<div>
-  <HelloWorld></HelloWorld>
+  <componenteHeader></componenteHeader>
   <EL_COMPONENTE></EL_COMPONENTE>
-</div>
+  
 </template>
 
-<style scoped>
+<style>
 
 </style>
+
+
+
+//import nav from './components/nav.vue';
+//import aside from './components/aside.vue';
+//import section from './components/section.vue';
+//import footer from './components/footer.vue';
+
+
+//import HelloWorld from './components/HelloWorld.vue'
+
+//import TheWelcome from './components/TheWelcome.vue'
