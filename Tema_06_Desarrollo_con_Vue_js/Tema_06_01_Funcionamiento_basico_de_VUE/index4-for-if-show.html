@@ -12,9 +12,25 @@
 </head>
 <body>
     <div id="app"><!-- FIN APP -->
-
+        <p>{{prueba}}</p>
 
     </div><!-- FIN APP -->
+
+
+    <script>
+        const {createApp} = Vue;
+        const app = createApp({
+            data(){
+                return{
+                    prueba: "Hola"
+                }
+            }
+
+
+        })
+        app.mount("#app")
+        
+    </script>
     
 </body>
 </html>
