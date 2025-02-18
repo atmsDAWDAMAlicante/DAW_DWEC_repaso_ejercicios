@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando FETCH, v-if, v-show</title>
+    <link href="./estilos.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"><!-- APP -->
+        <div class="cuadroTitulo">
+        <button @click="hacerFetch">OK</button>
+        <p>
+            <input type="text" @keydown.enter="hacerFetch">
+        </p>
+    </div>
+        <div class="celdilla">
+            <h1>{{contenido}}</h1>
+            <pre></pre>
+        </div>
+        <div class="celdilla pares">
+            <h1>SEGUNDA</h1>
+
+        </div>
+        <div class="celdilla primos">
+            <h1>TERCERA</h1>
+
+        </div>
+
+    </div><!-- FIN APP -->
+
+
+    <script>
+        const {createApp} = Vue;
+        const app = createApp({
+            data(){
+                return{
+                    prueba: "Hola",
+                    url1: new URL('https://api.github.com/users/AngelTomasM'),
+                    url2: new URL('https://api.github.com/users/AngelTomasM3'),
+                    contenido: []            
+                }
+            }, 
+            methods:{
+                cambioSaludo(){
+                    this.prueba = "Hola, Don José"
+                },
+                hacerFetch(){
+                    fetch(this.url1)
+                    .then((response)=>{
+                        
+                        if(response.status != 200){
+                            alert(`Error ${response.status}`)
+                        }
+                        alert(`OK ${response.status}`)
+                        return response.json();
+                    })
+                    .then((data)=>{
+                        console.log(data);
+                        alert(typeof(data))
+                        this.contenido = data.avatar_url
+                    })
+                }
+            },
+            computed:{
+                pruebaComputada(){
+                    return `${this.prueba}, Don Pepito`;
+                },
+                mostrarResultado(resultado){
+                    //let contenido  = [];
+                    for (let elemento in resultado){
+                        this.contenido.push(elemento)
+                    }
+                    return this.contenido;
+                }
+            }
+
+
+        })
+        app.mount("#app")
+        
+    </script>
+    
+</body>
+</html>
