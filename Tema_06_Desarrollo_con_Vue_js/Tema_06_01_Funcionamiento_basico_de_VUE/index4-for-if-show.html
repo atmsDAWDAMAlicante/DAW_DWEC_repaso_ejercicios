@@ -4,15 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practicando v-for, v-if, v-show</title>
-    <link href="../estilos.css" rel="stylesheet">
-    <style>
-        
-    </style>
+    <link href="./estilos.css" rel="stylesheet">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div id="app"><!-- FIN APP -->
-        <p>{{prueba}}</p>
+    <div id="app"><!-- APP -->
+        <div class="cuadroTitulo">
+        <p @click="generarAleatorios">{{aleatorios}}</p>
+        <p>
+            <input type="text" @keydown.enter="generarAleatorios">
+        </p>
+    </div>
+        <div class="celdilla">
+            <h1>Doble</h1>
+        <ul>
+            <li v-for="(numero, index) in dobles" :key="`num-${numero}-index-${index}`">
+                {{numero}}
+            </li>
+        </ul>
+        </div>
+        <div class="celdilla pares">
+            <h1>Pares</h1>
+            <ul v-if="pares.length > 10">
+                <li v-for="(numeroPar, index) in pares" :key="`num-${numeroPar}-index-${index}`">
+                    {{numeroPar}}
+                </li>
+            </ul>
+        </div>
+        <div class="celdilla primos" v-show="primos.length > 3">
+            <h1>Primos</h1>
+            <ul>
+                <li v-for="(numeroPrimo, index) in primos" :key="`num-${numeroPrimo}-index-${index}`">
+                    {{numeroPrimo}}
+                </li>
+            </ul>
+        </div>
 
     </div><!-- FIN APP -->
 
@@ -22,7 +48,74 @@
         const app = createApp({
             data(){
                 return{
-                    prueba: "Hola"
+                    prueba: "Hola",
+                    aleatorios:[]                  
+                }
+            }, 
+            methods:{
+                cambioSaludo(){
+                    this.prueba = "Hola, Don José"
+                },
+                generarAleatorios(){
+                    console.clear();
+                    this.aleatorios.length = 0;
+                    for (let i = 0; i < 20; i++){
+                        this.aleatorios.push(this.aleatorio)
+                    }
+                    console.log(this.aleatorios)
+                    console.log("PARES: " + this.pares.length)
+                    console.log("PRIMOS: " + this.primos.length)
+                },
+                esPrimo(numero){
+                    let coincidencia = 0;
+                    for (let i = (numero - 1); i >= 2; i --){
+                        if (numero%i==0){
+                            coincidencia++;
+                        }
+                    }
+                    if (coincidencia>0){
+                        return false
+                    }
+                    else{
+                    return true;
+                    }
+                }
+            },
+            computed:{
+                pruebaComputada(){
+                    return `${this.prueba}, Don Pepito`;
+                },
+                aleatorio(){
+                    return Math.round(Math.random()*100);
+                },
+                dobles(){
+                    let arrayDobles = this.aleatorios.map((elemento)=>elemento*2);
+                    console.log(`Los dobles: ${arrayDobles.length}:\n${arrayDobles}`);
+                    return arrayDobles;
+                },
+                pares(){
+                    let arrayPares = [];
+                    for (let numero of this.aleatorios){
+                        if (numero%2 == 0){
+                            arrayPares.push(numero);
+                        }
+                    }
+                    console.log(`Los pares: ${arrayPares.length}:\n${arrayPares}`);
+                    return arrayPares;
+                },
+                primos(){
+                    let arrayPrimos = [];
+                        for (numero of this.aleatorios)
+                        {
+                            if (this.esPrimo(numero))
+                        {
+                            arrayPrimos.push(numero)
+                        }
+                        }
+
+
+                    console.log(`Los primos: ${arrayPrimos.length}:\n${arrayPrimos}`);
+                    return arrayPrimos;
                 }
             }
 
