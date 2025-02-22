@@ -1,19 +1,25 @@
 //alert("Hola")
 
-const app = document.querySelector("#app");
-const boton = document.querySelector("#boton");
-let urlOK = new URL ("https://api.github.com/users/AngelTomasM")
-let urlNoUser = new URL ("https://api.github.com/users/AngelTomasM2")
-let urlMal = new URL("https://Xapi.github.com/users/AngelTomasM")
-let urlPokemon = new URL ("https://pokeapi.co/api/v2/pokemon/ditto")
-let resultado = "";
-async function recuperar(url) {
+const resultado1 = document.querySelector("#resultado1");
+const resultado2 = document.querySelector("#resultado2");
+const botonAsync = document.querySelector("#botonAsync");
+const botonThen = document.querySelector("#botonThen");
+let url = [
+new URL ("https://api.github.com/users/AngelTomasM"),
+new URL ("https://api.github.com/users/AngelTomasM2"),
+new URL("https://Xapi.github.com/users/AngelTomasM"),
+new URL ("https://pokeapi.co/api/v2/pokemon/ditto")
+];
+// https://api.github.com/rate_limit
+
+async function recuperarAsync(url) {
+    let resultado = "";
     try{
     await fetch (url)
     .then((response)=>{
         if (response.status !=200){
             resultado = response.status;
-            app.textContent = resultado;
+            resultado1.textContent = resultado;
             return;
         } else {
         resultado = `response antes de json() es ${typeof(response)}<br>`
@@ -22,25 +28,47 @@ async function recuperar(url) {
     })
     .then((data)=>{
         resultado += `data después de json() es ${typeof(data)}<br>`
-        app.innerHTML=resultado
+        resultado1.innerHTML=resultado
         console.log(data)
+        for (let i in data){
+            console.log(i)
+        }
     })
     
 } catch {
-    app.innerHTML= "ERROR"
+    resultado1.innerHTML= "ERROR"
 }
 }
 
+function recuperarThen(url) {
+    let resultado = "THEN";
+    //resultado2.innerHTML=resultado
+    fetch (url)
+    .then((response)=>{
+        resultado += `${response.status}<br>`;
+        if (response.status != 200){
+            resultado += `Error: ${response.status}`;
+        } else {
+            return response.json();
+        }
+    })
+    .then((data)=>{
+        //resultado += data;
+        console.log(data)
+        resultado += "<h3>Datos del usuario</h3><ul>";
+        for (let key in data) {
+            resultado += `<li><b>${key}:</b> ${data[key]}</li>`;
+        }
+        resultado += "</ul>";
+        console.log(resultado);
+        resultado2.innerHTML += resultado;
+    })
+    //console.log(url)
+
+
+}
 
 
 
-
-
-
-
-
-
-
-
-
-boton.addEventListener("click", ()=>recuperar(urlNoUser));
+botonAsync.addEventListener("click", ()=>recuperarAsync(url[0]));
+botonThen.addEventListener("click", ()=>recuperarThen(url[3]));

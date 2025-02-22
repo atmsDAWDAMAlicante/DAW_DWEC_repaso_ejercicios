@@ -1,6 +1,12 @@
 /* ETIQUETAS */
 body{background-color: #000000;}
-div{background-color: #FFFFFF;padding-top: 10px;padding-left:20px;margin-top: 5px;border: 1px solid #00FFFF;border-radius:20px;}
+div{
+    background-color: #C0C0C0;
+    padding-top: 10px;
+    padding-left:20px;
+    margin-top: 5px;
+    border: 2px solid #FFFF00;
+    border-radius:20px;}
 h1{margin-top:-10px;margin-bottom: -5px;}
 
 /* TEXTO BÁSICO */
@@ -31,3 +37,7 @@ h1{margin-top:-10px;margin-bottom: -5px;}
 /* ELEMENTOS DE LOS FORMULARIO */
 button{border: 1px solid #000000;padding:3px;}
 button, input {margin-top:3px;border-radius:10px;}
+
+.tabla {display: table;}
+.fila {display: table-row;}
+.celda {display: table-cell;}
