@@ -1,7 +1,10 @@
 <script>
-
+import GitHubRepo from './GitHubRepo.vue';
 export default {
     name:"componenteCabecera",
+    components:{
+        GitHubRepo
+    },
     data(){
         
         return{
@@ -92,7 +95,7 @@ export default {
         </div>
 
         <div class="divRepositorios" v-if="nuevaBusqueda == true">
-            ljfalskdjfñlksdjf
+            <GitHubRepo :recibido="repos_url"></GitHubRepo>
         </div>
 
 

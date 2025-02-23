@@ -2,9 +2,11 @@
 //import HelloWorld from './components/HelloWorld.vue'
 //import TheWelcome from './components/TheWelcome.vue'
 import GitHub from './components/GitHub.vue';
+//import GitHubRepo from './components/GitHubRepo.vue';
 export default{
   components:{
     GitHub
+   // GitHubRepo
   },
   data(){
     return{
