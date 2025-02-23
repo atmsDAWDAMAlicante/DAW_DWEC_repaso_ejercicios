@@ -29,6 +29,7 @@ export default{
 </template>
 
 <style scoped>
+h1{text-align: center;}
 /*header {line-height: 1.5;}
 .logo {display: block;margin: 0 auto 2rem;}
 @media (min-width: 1024px) {

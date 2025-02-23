@@ -16,8 +16,8 @@ export default {
             repos_url:"",
             // Booleanos
             mostrar: false,
-            primeraVez: true
-            
+            primeraVez: true,
+            nuevaBusqueda: false
         }
     },
     props:[
@@ -27,8 +27,9 @@ export default {
         borrarConsola(){
             console.clear();
         },
-        llamadaGitHub(){
+        obtenerUsuario(){
             this.primeraVez=false;
+            this.nuevaBusqueda=false;
             // Formación de la URL
             this.urlCompleta = new URL(`${this.urlParteFija}${this.urlUsuario}`)
             console.log(`Se llama a la URL: ${this.urlCompleta}`)
@@ -55,6 +56,9 @@ export default {
                 console.log(`Error de conexión: error ${response.status}`)
             })
 
+        },
+        obtenerRepos(){
+            this.nuevaBusqueda=true;
         }
     }
 }
@@ -64,18 +68,19 @@ export default {
 <template>
 <main>
     <div>
-        <input type="text" v-model="urlUsuario" @keydown.enter="llamadaGitHub">
+        <input type="text" v-model="urlUsuario" @keydown.enter="obtenerUsuario">
         <button @click="borrarConsola">Borrar consola</button> Búsqueda: {{ urlParteFija }}{{ urlUsuario }}
     </div>
     
-    <template v-if="primeraVez == false">
+    <template v-if="primeraVez == false" style="display:inline-block">
         <div v-if="mostrar == true" class="usuarioExistente">
-            <dl><dt>El usuario {{ urlUsuario }} SÍ existe:</dt>
+            <dl><dt>El usuario <span class="marcadomorado">{{ urlUsuario }}</span> SÍ existe:</dt>
                 <dd>Usuario: <span class="marcadorojo">{{ login }}</span></dd>
                 
                 <dd>HTML URL: <a :href="html_url" target="_blank"><span class="marcadoazul">{{ html_url }}</span></a></dd>
                 <dd>Repositorios: <a :href="repos_url" target="_blank"><span class="marcadoverde">{{ repos_url }}</span></a></dd>
             </dl>
+            <button id="verRepos" @click="obtenerRepos">Ver repositorios</button>
             <figure><img :src="avatar_url" alt="Avatar">
                 <figcaption>Url del avatar: <a :href="avatar_url" target="_blank"><span class="marcadoverde">{{ avatar_url }}</span></a></figcaption>
             </figure>
@@ -84,6 +89,10 @@ export default {
 
         <div v-else class="usuarioInexistente">
             El usuario {{ urlUsuario }} NO existe.
+        </div>
+
+        <div class="divRepositorios" v-if="nuevaBusqueda == true">
+            ljfalskdjfñlksdjf
         </div>
 
 
@@ -102,14 +111,39 @@ header, p{color:black;}
 }
 
 .usuarioExistente{
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
     border: 1px solid blue;
     background-color: rgb(229, 251, 255);
     font-weight: bold;
+    font-size: 0.9em;
+    margin-top: 10px;
+    margin-left: 20px;
 }
+
+img{width: 80%;}
 
 .marcadorojo{color:red}
 .marcadoverde{color:#339900}
 .marcadoazul{color:blue}
 .marcadomorado{color:purple}
+
+#verRepos{
+    background-color: #339900;
+    margin-left: 40px;
+    color: white;
+}
+
+.divRepositorios{
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    background-color: #d1f7bf;
+    margin-left: 20px;
+    color: black;
+    border: 1px solid #339900;
+    margin-top:10px;
+}
 
 </style>
