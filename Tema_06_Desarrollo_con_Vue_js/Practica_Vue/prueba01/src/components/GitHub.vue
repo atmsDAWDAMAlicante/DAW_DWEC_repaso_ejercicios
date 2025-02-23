@@ -17,6 +17,10 @@ export default {
             avatar_url:"",
             html_url:"",
             repos_url:"",
+
+            // GET repositorios
+            numRepos: 0,
+            losRepositorios: [],
             // Booleanos
             mostrar: false,
             primeraVez: true,
@@ -62,6 +66,14 @@ export default {
         },
         obtenerRepos(){
             this.nuevaBusqueda=true;
+            fetch(`${this.repos_url}`) // se recoge con fetch los repositorios
+            .then((response)=>{
+                console.log(`Numero de repositorios antes del json: ${this.numRepos}`);
+                return response.json();
+            }).then((data)=>{
+                this.losRepositorios = data;
+                console.log(`Repositorios recogidos: ${this.losRepositorios.length}`);
+            })
         }
     }
 }
@@ -95,7 +107,9 @@ export default {
         </div>
 
         <div class="divRepositorios" v-if="nuevaBusqueda == true">
-            <GitHubRepo :recibido="repos_url"></GitHubRepo>
+            <div v-for="unRepositorio in losRepositorios" :key="`${unRepositorio.id}`">
+            <GitHubRepo :repo="unRepositorio"></GitHubRepo>
+            </div>
         </div>
 
 
