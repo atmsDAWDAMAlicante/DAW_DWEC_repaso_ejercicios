@@ -8,6 +8,7 @@ export default{
   },
   data(){
     return{
+      titulo:"Buscar usuario de GitHub",
       algo: "Esto es algo"
     }
   }
@@ -15,17 +16,16 @@ export default{
 </script>
 
 <template>
-  <header>
+  <header><h1>{{ titulo }}</h1>
     <!--<img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
-<GitHub :unProp="algo"></GitHub>
+
     <!--<div class="wrapper">-->
       <!--<HelloWorld msg="You did it!" />-->
     <!--</div>-->
   </header>
-
-  <main>
-    <!--<TheWelcome />-->
-  </main>
+  <p>
+  <GitHub :unProp="algo"></GitHub>
+</p>
 </template>
 
 <style scoped>
