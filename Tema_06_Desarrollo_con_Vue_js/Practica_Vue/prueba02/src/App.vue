@@ -16,7 +16,7 @@ export default{
 
 <template>
   <!--<header><img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" /><div class="wrapper"><HelloWorld msg="You did it!" /></div></header>-->
-  <header><h1>Buscar usuario en GitHub</h1></header>
+  <header class="container"><h1>Buscar usuario en GitHub</h1></header>
   <GitHub :recibido1="pruebaMaster"></GitHub>
   <!--<main><TheWelcome /></main>-->
 </template>
@@ -29,6 +29,7 @@ h1{
   font-size: 3rem;
   margin-top:-7px;
   text-shadow: 10px 10px 15px;
+  color:yellow;
 }
 
 
