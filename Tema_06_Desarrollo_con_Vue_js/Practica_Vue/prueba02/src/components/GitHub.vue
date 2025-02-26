@@ -9,7 +9,8 @@ export default {
     },
     data(){
         return{
-            prueba: "Hola"
+            prueba: "Hola",
+            introducido: ""
         }
     },
     props:[
@@ -18,6 +19,9 @@ export default {
     methods:{
         borrarConsola(){
             console.clear();
+        },
+        borrarInput(){
+            introUsuario.value = ""
         }
     }
 }
@@ -28,21 +32,24 @@ export default {
 <template>
     <main class="container">
         <div class="row">
-            <div class="col col-10" id="divTextoInput">
+            <div class="col col-8" id="divTextoInput">
                 <input type="text" id="introUsuario" class="form-control">
             </div>
-            <div class="col col-2" style="border:1px solid red">
+            <div class="col col-3">
                 <button type="button" class="btn btn-primary" @click="borrarConsola">Borrar consola</button>
+                <button type="button" class="btn btn-warning" @click="borrarInput" :value="introducido">#</button>
             </div>
         </div>
     </main>
-
+    <p>{{ recibido1 }}</p>
     <GitHubRepo :recibido2="prueba"></GitHubRepo>
 
 </template>
 
 <style scoped>
 main{color:yellow;margin-top:30px;}
-#divTextoInput{margin-left:50px;margin-right: 200px;width: 800px;border:yellow 1px solid}
-#introUsuario{width: 800px;font-weight: bold;color:red;}
+#divTextoInput{margin: 0 20px 0 10px; }
+#introUsuario{color:blue;border:rgb(0, 149, 199) 4px solid}
+p{color:white}
+button{margin-right: 20px;}
 </style>
