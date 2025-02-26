@@ -3,7 +3,7 @@
 import GitHubRepo from './GitHubRepo.vue';
 
 export default {
-    name: "aa",
+    name: "ComponenteGitHub",
     components:{
     GitHubRepo
     },
@@ -26,12 +26,12 @@ export default {
 
 
 <template>
-    <main class="container-fluid">
+    <main class="container">
         <div class="row">
-            <div class="col" id="divTextoInput">
+            <div class="col col-10" id="divTextoInput">
                 <input type="text" id="introUsuario" class="form-control">
             </div>
-            <div class="col">
+            <div class="col col-2" style="border:1px solid red">
                 <button type="button" class="btn btn-primary" @click="borrarConsola">Borrar consola</button>
             </div>
         </div>
