@@ -1,15 +1,14 @@
 <script>
 import GitHub from './components/GitHub.vue'
-import GitHubRepo from './components/GitHubRepo.vue'
+//import GitHubRepo from './components/GitHubRepo.vue'
 
 export default {
   name: "principal",
   components:{
-    GitHub,
-    GitHubRepo
+    GitHub
   }, data(){
     return{
-      prueba1: "Hola1"
+      titulo: "Buscar usuario de GitHub"
     }
   }, methods:{
     borrarConsola(){
@@ -21,10 +20,10 @@ export default {
 </script>
 
 <template>
-{{ prueba1 }}
+  <header><h1>{{titulo}}</h1></header>
 <GitHub></GitHub>
 </template>
 
 <style scoped>
-
+h1{text-align: center;}
 </style>
