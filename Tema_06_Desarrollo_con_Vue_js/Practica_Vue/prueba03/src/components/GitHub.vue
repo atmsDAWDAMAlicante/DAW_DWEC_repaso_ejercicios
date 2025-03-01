@@ -1,15 +1,14 @@
 <script>
-import GitHub from './components/GitHub.vue'
-import GitHubRepo from './components/GitHubRepo.vue'
+import GitHubRepo from './GitHubRepo.vue'
 
 export default {
-  name: "principal",
+  name: "github",
   components:{
-    GitHub,
     GitHubRepo
-  }, data(){
+  }, 
+  data(){
     return{
-      prueba1: "Hola1"
+      prueba2: "Hola2"
     }
   }, methods:{
     borrarConsola(){
@@ -17,12 +16,11 @@ export default {
     }
   }
 }
-
 </script>
 
 <template>
-{{ prueba1 }}
-<GitHub></GitHub>
+{{ prueba2 }}
+<GitHubRepo :envio="prueba2"></GitHubRepo>
 </template>
 
 <style scoped>
