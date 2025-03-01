@@ -7,11 +7,14 @@ export default {
       prueba3: "Hola3"
     }
   }, props:[
-    "envio"
+    "repo"
   ],
   methods:{
     borrarConsola(){
       console.clear();
+    },
+    imprimirConsola(){
+        console.log("Un repo")
     }
   }
 }
@@ -19,7 +22,14 @@ export default {
 </script>
 
 <template>
-{{ prueba3 }} {{ envio }}
+
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{ repo.name }}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{ repo.language }}</h5>
+    <p class="card-text">{{ repo.forks_count }}</p>
+  </div>
+</div>
 </template>
 
 <style scoped>
