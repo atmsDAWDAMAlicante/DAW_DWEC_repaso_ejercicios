@@ -8,7 +8,7 @@ export default{
     GitHub
   }, data(){
       return{
-        pruebaMaster:"Pasando un prop",
+        titulo:"Buscar usuario en GitHub",
         color:true,
         amarillo: '#FFFF00',
         verde: '#00FF00',
@@ -22,9 +22,9 @@ export default{
 
 <template>
  
-  <header class="container"><h1>Buscar usuario en GitHub</h1></header>
+  <header class="container"><h1>{{titulo}}</h1></header>
   <div>
-    <GitHub :recibido1="pruebaMaster"></GitHub>
+    <GitHub></GitHub>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ h1{
   text-align: center;
   font-family: 'Comic Sans MS', Helvetica, Verdana, sans-serif;
   font-size: 3rem;
-  margin-top:-7px;
+  margin-top:1px;
   text-shadow: 10px 10px 15px;
   color:yellow;
 }
