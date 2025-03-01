@@ -8,11 +8,8 @@ export default {
         }
     },
     props:[
-        "recibido2"
-    ],
-    methods:{
-
-    }
+        "repo"
+    ]
 }
 
 </script>
@@ -20,7 +17,13 @@ export default {
 
 <template>
     <div>
-        {{ recibido2 }}
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">{{ repo.name }}</div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">{{ repo.language }}</h5>
+                    <p class="card-text">{{ repo.forks_count }}</p>
+                </div>
+        </div>
     </div>
 
     
@@ -28,6 +31,6 @@ export default {
 </template>
 
 <style scoped>
-div{color:aquamarine}
+div{color:purple}
 
 </style>
