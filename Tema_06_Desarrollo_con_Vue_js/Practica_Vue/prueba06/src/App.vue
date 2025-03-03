@@ -16,7 +16,8 @@ export default {
       // Variables de GitHub
       usuario:"",
       urlBasica:"https://api.github.com/users/",
-      urlCompleta:""
+      urlCompleta:"",
+      seguidores:[]
     }
   },
   methods:{
@@ -25,10 +26,29 @@ export default {
     },
     borrarInput(){
       this.usuario="";
+      this.primeraVez = true;
     },
     obtenerUsuario(){
       console.log(this.usuario);
       this.primeraVez = false;
+      this.urlCompleta = `${this.urlBasica}${this.usuario}/followers`
+      fetch(this.urlCompleta)
+      .then((response)=>{
+        if(response.status!=200){
+          this.usuarioExistente = false;
+          console.log("El usuario no existe: " + response.status);
+        } else {
+          this.usuarioExistente = true;
+          return response.json();
+        }
+      })
+      .then((data)=>{
+        console.log(data);
+        this.seguidores=data;
+        console.log(this.seguidores[0].login)
+      })
+      .catch((error)=>console.log("Se ha producido un error: " + error));
+
     }
   }
 }
@@ -73,8 +93,8 @@ export default {
     </div>
   </div>
   <div class="row" v-else>
-    <div class=" col col-10 movimiento">
-      <SeguidoresGitHub></SeguidoresGitHub>
+    <div class=" col col-10 movimiento" v-for="cadaSeguidor in seguidores" :key="cadaSeguidor.id">
+      <SeguidoresGitHub :unSeguidor="cadaSeguidor"></SeguidoresGitHub>
     </div>
   </div>
 </main>
@@ -84,4 +104,5 @@ export default {
 
 <style scoped>
 .movimiento{margin-left: 100px;}
+p{color:yellowgreen}
 </style>

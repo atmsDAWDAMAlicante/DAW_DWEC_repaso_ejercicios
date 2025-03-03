@@ -9,9 +9,9 @@ export default {
       titulo: "Seguidores GitHub"
     }
   },
-  methods:{
-
-  }
+ props:[
+    "unSeguidor"
+ ]
 }
 
 
@@ -20,7 +20,7 @@ export default {
 <template>
 
 <header>
-  <h1>{{ titulo }}</h1>
+  <h1>{{ unSeguidor.login }}</h1>
 </header>
 
 
