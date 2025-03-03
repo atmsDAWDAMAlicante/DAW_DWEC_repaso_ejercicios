@@ -55,9 +55,21 @@ export default {
                 this.login=data.login;
                 this.avatar_url=data.avatar_url;
                 this.html_url=data.html_url;
-                this.repos=data.repos;
+                
                 console.log(this.login);
             }).catch((error)=>{console.log("ERROR: " + error)})
+        },
+        obtenerRepos(){
+            this.verRepo=true;
+            console.log(`${this.urlCompleta}/repos`)
+            fetch(`${this.urlCompleta}/repos`)
+            .then((response)=>{
+                return response.json();
+            })
+            .then((data)=>{
+                this.repos=data;
+                console.log(this.repos)
+            })
         }
   }
 }
@@ -91,19 +103,21 @@ export default {
         </div>
     </div>
     <div class="row" v-else>
-        <div class="col col-8">
+        <div class="col col-7">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img :src="avatar_url" class="card-img-top" alt="Avatar del usuario">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Usuario: {{ login }}</h5>
+                    <p><a :href="html_url" target="_blank">Ver perfil de usuario</a></p>
+                    <button class="btn btn-primary" @click="obtenerRepos">Ver repos</button>
                 </div>
                 </div>
 
         </div>
-        <div class="col col-5" v-if="verRepo == true">
-            <GitHubRepo></GitHubRepo>
+        <div class="col col-4" v-if="verRepo == true">
+            <div v-for="unRepo in repos" :key="unRepo.id">
+                <GitHubRepo :cadaRepo="unRepo"></GitHubRepo>
+            </div>
         </div>
     
     </div>
