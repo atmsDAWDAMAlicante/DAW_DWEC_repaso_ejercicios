@@ -64,15 +64,24 @@ export default {
     </div>
   </div>
 </nav>
-<div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
+<div>&nbsp;</div>
 
 <main v-if="primeraVez == false" class="containter">
-  <SeguidoresGitHub></SeguidoresGitHub>
+  <div class="row" v-if="usuarioExistente==false">
+    <div class="alert alert-danger col col-8 movimiento" role="alert">
+      El usuario {{ usuario }} no existe
+    </div>
+  </div>
+  <div class="row" v-else>
+    <div class=" col col-10 movimiento">
+      <SeguidoresGitHub></SeguidoresGitHub>
+    </div>
+  </div>
 </main>
 
 
 </template>
 
 <style scoped>
-
+.movimiento{margin-left: 100px;}
 </style>
