@@ -1,13 +1,13 @@
 <script>
-import GitHub from './components/GitHub.vue';
+import GitHubRepo from './GitHubRepo.vue'
 
 export default {
-  name: "Principal",
+  name: "GitHub",
   components:{
-    GitHub
+    GitHubRepo
   }, data(){
     return {
-        titulo: "Principal"
+        titulo: "GitHub"
     }
   }
 }
@@ -16,10 +16,8 @@ export default {
 
 <template>
   <header>
-    <div class="alert alert-danger" role="alert">
-      {{titulo}}
-</div>
-<GitHub></GitHub>
+<h2>{{ titulo }}</h2>
+<GitHubRepo></GitHubRepo>
   </header>
 
   <main>
