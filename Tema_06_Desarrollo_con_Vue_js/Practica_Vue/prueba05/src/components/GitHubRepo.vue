@@ -6,18 +6,22 @@ export default {
     return {
         titulo: "GitHubRepo"
     }
-  }
+  }, props:[
+    "cadaRepo"
+  ]
 }
 
 </script>
 
 <template>
-  <header>
-<h2>{{ titulo }}</h2>
-  </header>
-
   <main>
-
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{ cadaRepo.name }}</div>
+      <div class="card-body text-primary">
+        <h5 class="card-title">{{ cadaRepo.language }}</h5>
+        <p class="card-text">{{ cadaRepo.forks_count }}</p>
+      </div>
+    </div>
   </main>
 </template>
 

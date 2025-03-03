@@ -34,6 +34,7 @@ export default {
         },
         obtenerUsuario(){
             this.primeraVez = false;
+            this.verRepo=false;
             // Componer la URL
             this.urlCompleta = this.urlBasica + this.usuario
             console.log("URL:" + this.urlCompleta)
