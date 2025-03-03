@@ -1,3 +1,6 @@
+my.penanunez@edu.gva.es
+a.roighernandez@edu.gva.es
+
 Para crear una aplicación
 aplicación vue-cli se instala como aplicación global de NodeJS
 npm install -g @vue/cli
@@ -17,7 +20,16 @@ y sada las tres instrucciones
 en el directorio
 ls tree-- tree /F
 
-
+[ 
+{
+id:0, 
+descripcion: "Levantarme de la cama"
+}, 
+{
+id:1,
+ descripcion: "Lavarme los dientes"
+} 
+]
 
 node_moduls están las dependencias está vue y vite y demás
 estará index.html con un div vacío app y la aplicación carga main.js
