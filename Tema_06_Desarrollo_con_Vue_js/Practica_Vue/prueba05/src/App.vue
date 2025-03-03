@@ -7,7 +7,7 @@ export default {
     GitHub
   }, data(){
     return {
-        titulo: "Principal"
+        titulo: "Buscar repositorios en GitHub"
     }
   }
 }
@@ -16,18 +16,19 @@ export default {
 
 <template>
   <header>
-    <div class="alert alert-danger" role="alert">
-      {{titulo}}
-</div>
-<GitHub></GitHub>
+    <div class="alert alert-success" role="alert">
+      <span class="tituloGrande">{{titulo}}</span>
+    </div>
   </header>
-
   <main>
-
+    <GitHub></GitHub>
   </main>
 </template>
 
 <style scoped>
-h2{color:yellow;}
+.tituloGrande{
+  font-size:2em;
+  font-weight: bold;
+}
 
 </style>
