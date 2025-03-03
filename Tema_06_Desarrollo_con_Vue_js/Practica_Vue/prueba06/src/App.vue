@@ -45,7 +45,6 @@ export default {
       .then((data)=>{
         console.log(data);
         this.seguidores=data;
-        console.log(this.seguidores[0].login)
       })
       .catch((error)=>console.log("Se ha producido un error: " + error));
 
@@ -93,7 +92,7 @@ export default {
     </div>
   </div>
   <div class="row" v-else>
-    <div class=" col col-10 movimiento" v-for="cadaSeguidor in seguidores" :key="cadaSeguidor.id">
+    <div class=" col col-2 movimiento" v-for="cadaSeguidor in seguidores" :key="cadaSeguidor.id">
       <SeguidoresGitHub :unSeguidor="cadaSeguidor"></SeguidoresGitHub>
     </div>
   </div>
