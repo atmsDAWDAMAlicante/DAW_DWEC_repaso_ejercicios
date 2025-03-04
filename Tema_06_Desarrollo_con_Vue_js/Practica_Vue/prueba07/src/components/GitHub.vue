@@ -36,7 +36,42 @@ export default {
         },
         obtenerUsuario(){
             this.primeraVez = false;
-            console.log("Vamos" + this.usuario);
+            // Composición de la URL
+            this.urlCompleta = `${this.urlBasica}${this.usuario}`
+            console.log(this.urlCompleta);
+
+            // Fetch
+            fetch(this.urlCompleta)
+            .then((response)=>{
+                if (response.status!=200){
+                    this.usuarioExistente = false;
+                    console.log(`Usuario inexistente. Error: ${response.status}`)
+                    return;
+                } else {
+                    this.usuarioExistente = true;
+                    console.log(`Usuario correcto: ${response.status}`)
+                    return response.json();
+                }
+            })
+            .then((data)=>{
+                console.log(data);
+                this.login = data.login;
+                this.avatar_url = data.avatar_url;
+                this.html_url = data.html_url;
+                this.repos = data.repos;
+                console.log(`Login: ${this.login}`);
+                console.log(`Avatar: ${this.avatar_url}`);
+                console.log(`Html_url: ${this.html_url}`);
+            }).catch((error)=>console.log("Se ha producido un error: " + error))
+        },
+        obtenerRepos(){
+            console.log("Obtener repositorios")
+            fetch(`${this.urlCompleta}/repos`)
+            .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data)
+                this.repos=data
+        });
         }
     }
 }
@@ -63,25 +98,36 @@ export default {
 </main>
 
 <div v-if="primeraVez==false">
-    <div class="row">
+    <div class="row" v-if="usuarioExistente==false">
         <div class="col col-2">&nbsp;</div>
         <div class="col col-8 alert alert-danger" role="alert">
             El usuario {{ usuario }} no existe.
         </div>
     </div>
 
-    <div class="row">
-
-        
+    <div class="row" v-else>
+        <div class="col col-4">
+            <div class="card" style="width: 18rem;">
+                <img :src="avatar_url" class="card-img-top" alt="Avatar">
+                    <div class="card-body">
+                        <h5 class="card-title">{{login}}</h5>
+                        <p class="card-text">
+                            <a :href="html_url" target="_blank">{{html_url}}</a>
+                        </p>
+                        <a @click="obtenerRepos" class="btn btn-primary">Ver repositorios</a>
+                    </div>
+                    </div>
+        </div>
+        <div class="col col-6" >
+        <div v-for="unRepo in repos" :key="unRepo.id">
+            <GitHubRepo :repo="unRepo"></GitHubRepo></div>
+        </div>
     </div>
 
 
 </div>
 
 
-
-
-<footer><GitHubRepo :repo="temandounprop"></GitHubRepo></footer>
 
 </template>
 
