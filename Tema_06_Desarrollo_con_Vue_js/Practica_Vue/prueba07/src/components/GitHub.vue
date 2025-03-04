@@ -1,15 +1,15 @@
 <script>
-
-import GitHub from './components/GitHub.vue'
+import GitHubRepo from './GitHubRepo.vue';
 
 export default {
-    name:"Principal",
+    name:"componenteGitHub",
     components:{
-        GitHub
+        GitHubRepo
     },
     data(){
         return{
-            titulo:"xx"
+            titulo:"GitHub",
+            temandounprop:"Te mando un prop"
         }
     },
     methods:{
@@ -23,10 +23,9 @@ export default {
 
 <template>
   <header><h1>{{titulo}}</h1></header>
-  
 
+<footer><GitHubRepo :repo="temandounprop"></GitHubRepo></footer>
 
-  <footer><GitHub></GitHub></footer>
 </template>
 
 <style scoped>
