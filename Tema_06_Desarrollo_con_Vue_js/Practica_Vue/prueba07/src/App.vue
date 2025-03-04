@@ -9,12 +9,9 @@ export default {
     },
     data(){
         return{
-            titulo:"xx"
-        }
-    },
-    methods:{
-        borrarConsola(){
-            console.clear();
+            titulo:"Buscar repositorios de GitHub",
+
+            
         }
     }
 }
@@ -30,6 +27,6 @@ export default {
 </template>
 
 <style scoped>
-
-
+h1{text-align: center;}
+header{background-color: aqua;}
 </style>
