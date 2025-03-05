@@ -1,9 +1,9 @@
 <script>
-
+import SeguidoresGitHub from './components/SeguidoresGitHub.vue'
 export default {
   name: "principal",
   components: {
-
+    SeguidoresGitHub
   },
   data(){
     return {
@@ -33,7 +33,8 @@ export default {
       this.usuario="";
     },
     obtenerUsuarios(){
-      this.primeraVez=false,
+      this.primeraVez=false;
+      this.usuarioExistente=false;
       // Formar URL
       this.urlCompleta = `${this.urlBasica}${this.usuario}/followers`
       //fetch
@@ -94,7 +95,7 @@ export default {
 
   <main class="alert alert-success container">
     <div class="row" v-for="unRepo in repos" :key="unRepo.id">
-      {{ unRepo }}
+      <SeguidoresGitHub :cadaRepo="unRepo"></SeguidoresGitHub>
     </div>
   </main>
 
