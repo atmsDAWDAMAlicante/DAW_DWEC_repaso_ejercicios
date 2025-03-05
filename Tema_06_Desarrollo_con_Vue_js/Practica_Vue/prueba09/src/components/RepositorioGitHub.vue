@@ -16,9 +16,15 @@ export default {
 </script>
 
 <template>
-  <h2>{{ unRepo.id }}</h2>
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{ unRepo.name }}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{ unRepo.language }}</h5>
+    <p class="card-text">{{ unRepo.forks_count }}</p>
+  </div>
+</div>
 </template>
 
 <style scoped>
-h2{color:red;}
+
 </style>
